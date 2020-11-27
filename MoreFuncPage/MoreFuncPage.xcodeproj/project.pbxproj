@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4D729962FA0D0F31768AEAE /* Pods_MoreFuncPage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223CFE9B5F31955C0D81B8 /* Pods_MoreFuncPage.framework */; };
+		F7387D27256F85F4004051C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D26256F85F4004051C8 /* AppDelegate.swift */; };
+		F7387D29256F85F4004051C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D28256F85F4004051C8 /* SceneDelegate.swift */; };
+		F7387D2B256F85F4004051C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D2A256F85F4004051C8 /* ViewController.swift */; };
+		F7387D2E256F85F4004051C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7387D2C256F85F4004051C8 /* Main.storyboard */; };
+		F7387D30256F85F5004051C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7387D2F256F85F5004051C8 /* Assets.xcassets */; };
+		F7387D33256F85F5004051C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7387D31256F85F5004051C8 /* LaunchScreen.storyboard */; };
+		F7387D3E256F8700004051C8 /* MoreFuncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D3D256F8700004051C8 /* MoreFuncController.swift */; };
+		F7387D42256F88A8004051C8 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D41256F88A8004051C8 /* CollectionView.swift */; };
+		F7387D45256F890E004051C8 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D44256F890E004051C8 /* FlowLayout.swift */; };
+		F7387D48256F927E004051C8 /* ViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D47256F927E004051C8 /* ViewController+Ex.swift */; };
+		F7387D4B256F92AF004051C8 /* Application+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D4A256F92AF004051C8 /* Application+Ex.swift */; };
+		F7387D50256F94BF004051C8 /* ReusedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D4F256F94BF004051C8 /* ReusedIdentifier.swift */; };
+		F7387D57256FE555004051C8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387D56256FE555004051C8 /* HeaderView.xib */; };
+		F7387D5B256FE56B004051C8 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D5A256FE56B004051C8 /* HeaderView.swift */; };
+		F7387D60256FEA84004051C8 /* default_function.json in Resources */ = {isa = PBXBuildFile; fileRef = F7387D5F256FEA84004051C8 /* default_function.json */; };
+		F7387DD62570894D004051C8 /* FunctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387DD52570894D004051C8 /* FunctionModel.swift */; };
+		F7387DD92570898A004051C8 /* GroupFunctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387DD82570898A004051C8 /* GroupFunctionModel.swift */; };
+		F7387DDC257089CE004051C8 /* FunctionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387DDB257089CE004051C8 /* FunctionsModel.swift */; };
+		F7387E1A257094E9004051C8 /* UndefineFuncCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E19257094E9004051C8 /* UndefineFuncCell.xib */; };
+		F7387E1E2570951E004051C8 /* UndefineFuncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E1D2570951E004051C8 /* UndefineFuncCell.swift */; };
+		F7387E222570A2C0004051C8 /* NormalFuncCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E212570A2C0004051C8 /* NormalFuncCell.xib */; };
+		F7387E252570A2E4004051C8 /* NormalFuncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E242570A2E4004051C8 /* NormalFuncCell.swift */; };
+		F7387E282570A357004051C8 /* AddFuncCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E272570A357004051C8 /* AddFuncCell.xib */; };
+		F7387E2B2570A364004051C8 /* RemoveFuncCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E2A2570A364004051C8 /* RemoveFuncCell.xib */; };
+		F7387E2E2570A38F004051C8 /* AddFuncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E2D2570A38F004051C8 /* AddFuncCell.swift */; };
+		F7387E312570A399004051C8 /* RemoveFuncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E302570A399004051C8 /* RemoveFuncCell.swift */; };
+		F7387E352570B202004051C8 /* FunctionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E342570B202004051C8 /* FunctionManager.swift */; };
+		F7387E522570CFBD004051C8 /* MoreFuncView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E512570CFBD004051C8 /* MoreFuncView.xib */; };
+		F7387E552570CFCE004051C8 /* MoreFuncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E542570CFCE004051C8 /* MoreFuncView.swift */; };
+		F7387E582570D417004051C8 /* MoreFuncScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E572570D417004051C8 /* MoreFuncScrollView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A6B431945BC0119647EE731 /* Pods-MoreFuncPage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreFuncPage.debug.xcconfig"; path = "Target Support Files/Pods-MoreFuncPage/Pods-MoreFuncPage.debug.xcconfig"; sourceTree = "<group>"; };
+		49223CFE9B5F31955C0D81B8 /* Pods_MoreFuncPage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoreFuncPage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6304E605148CFCEF43A9A762 /* Pods-MoreFuncPage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreFuncPage.release.xcconfig"; path = "Target Support Files/Pods-MoreFuncPage/Pods-MoreFuncPage.release.xcconfig"; sourceTree = "<group>"; };
+		F7387D23256F85F4004051C8 /* MoreFuncPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoreFuncPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7387D26256F85F4004051C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F7387D28256F85F4004051C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F7387D2A256F85F4004051C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7387D2D256F85F4004051C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F7387D2F256F85F5004051C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7387D32256F85F5004051C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F7387D34256F85F5004051C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7387D3D256F8700004051C8 /* MoreFuncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFuncController.swift; sourceTree = "<group>"; };
+		F7387D41256F88A8004051C8 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		F7387D44256F890E004051C8 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		F7387D47256F927E004051C8 /* ViewController+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Ex.swift"; sourceTree = "<group>"; };
+		F7387D4A256F92AF004051C8 /* Application+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Ex.swift"; sourceTree = "<group>"; };
+		F7387D4F256F94BF004051C8 /* ReusedIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusedIdentifier.swift; sourceTree = "<group>"; };
+		F7387D56256FE555004051C8 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		F7387D5A256FE56B004051C8 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F7387D5F256FEA84004051C8 /* default_function.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = default_function.json; sourceTree = "<group>"; };
+		F7387DD52570894D004051C8 /* FunctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionModel.swift; sourceTree = "<group>"; };
+		F7387DD82570898A004051C8 /* GroupFunctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFunctionModel.swift; sourceTree = "<group>"; };
+		F7387DDB257089CE004051C8 /* FunctionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsModel.swift; sourceTree = "<group>"; };
+		F7387E19257094E9004051C8 /* UndefineFuncCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UndefineFuncCell.xib; sourceTree = "<group>"; };
+		F7387E1D2570951E004051C8 /* UndefineFuncCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndefineFuncCell.swift; sourceTree = "<group>"; };
+		F7387E212570A2C0004051C8 /* NormalFuncCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalFuncCell.xib; sourceTree = "<group>"; };
+		F7387E242570A2E4004051C8 /* NormalFuncCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalFuncCell.swift; sourceTree = "<group>"; };
+		F7387E272570A357004051C8 /* AddFuncCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFuncCell.xib; sourceTree = "<group>"; };
+		F7387E2A2570A364004051C8 /* RemoveFuncCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveFuncCell.xib; sourceTree = "<group>"; };
+		F7387E2D2570A38F004051C8 /* AddFuncCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuncCell.swift; sourceTree = "<group>"; };
+		F7387E302570A399004051C8 /* RemoveFuncCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFuncCell.swift; sourceTree = "<group>"; };
+		F7387E342570B202004051C8 /* FunctionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionManager.swift; sourceTree = "<group>"; };
+		F7387E512570CFBD004051C8 /* MoreFuncView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreFuncView.xib; sourceTree = "<group>"; };
+		F7387E542570CFCE004051C8 /* MoreFuncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFuncView.swift; sourceTree = "<group>"; };
+		F7387E572570D417004051C8 /* MoreFuncScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFuncScrollView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7387D20256F85F4004051C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4D729962FA0D0F31768AEAE /* Pods_MoreFuncPage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8188F32DF42C895BE8A6355D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A6B431945BC0119647EE731 /* Pods-MoreFuncPage.debug.xcconfig */,
+				6304E605148CFCEF43A9A762 /* Pods-MoreFuncPage.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ECAB8290AF7C708D4A44FB0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49223CFE9B5F31955C0D81B8 /* Pods_MoreFuncPage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7387D1A256F85F4004051C8 = {
+			isa = PBXGroup;
+			children = (
+				F7387D25256F85F4004051C8 /* MoreFuncPage */,
+				F7387D24256F85F4004051C8 /* Products */,
+				8188F32DF42C895BE8A6355D /* Pods */,
+				ECAB8290AF7C708D4A44FB0B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F7387D24256F85F4004051C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7387D23256F85F4004051C8 /* MoreFuncPage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7387D25256F85F4004051C8 /* MoreFuncPage */ = {
+			isa = PBXGroup;
+			children = (
+				F7387D3C256F86E9004051C8 /* MoreFunc */,
+				F7387D26256F85F4004051C8 /* AppDelegate.swift */,
+				F7387D28256F85F4004051C8 /* SceneDelegate.swift */,
+				F7387D2A256F85F4004051C8 /* ViewController.swift */,
+				F7387D2C256F85F4004051C8 /* Main.storyboard */,
+				F7387D2F256F85F5004051C8 /* Assets.xcassets */,
+				F7387D31256F85F5004051C8 /* LaunchScreen.storyboard */,
+				F7387D34256F85F5004051C8 /* Info.plist */,
+			);
+			path = MoreFuncPage;
+			sourceTree = "<group>";
+		};
+		F7387D3C256F86E9004051C8 /* MoreFunc */ = {
+			isa = PBXGroup;
+			children = (
+				F7387D5E256FEA33004051C8 /* MockData */,
+				F7387D55256FE4E0004051C8 /* Extension */,
+				F7387D59256FE55F004051C8 /* view */,
+				F7387E1C25709506004051C8 /* Cell */,
+				F7387D54256FE4D7004051C8 /* xib */,
+				F7387D3D256F8700004051C8 /* MoreFuncController.swift */,
+				F7387E572570D417004051C8 /* MoreFuncScrollView.swift */,
+				F7387D44256F890E004051C8 /* FlowLayout.swift */,
+				F7387D4F256F94BF004051C8 /* ReusedIdentifier.swift */,
+				F7387D41256F88A8004051C8 /* CollectionView.swift */,
+			);
+			path = MoreFunc;
+			sourceTree = "<group>";
+		};
+		F7387D54256FE4D7004051C8 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				F7387D56256FE555004051C8 /* HeaderView.xib */,
+				F7387E512570CFBD004051C8 /* MoreFuncView.xib */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
+		F7387D55256FE4E0004051C8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F7387D47256F927E004051C8 /* ViewController+Ex.swift */,
+				F7387D4A256F92AF004051C8 /* Application+Ex.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F7387D59256FE55F004051C8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F7387D5A256FE56B004051C8 /* HeaderView.swift */,
+				F7387E542570CFCE004051C8 /* MoreFuncView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		F7387D5E256FEA33004051C8 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				F7387E342570B202004051C8 /* FunctionManager.swift */,
+				F7387D5F256FEA84004051C8 /* default_function.json */,
+				F7387DDB257089CE004051C8 /* FunctionsModel.swift */,
+				F7387DD82570898A004051C8 /* GroupFunctionModel.swift */,
+				F7387DD52570894D004051C8 /* FunctionModel.swift */,
+			);
+			name = MockData;
+			sourceTree = "<group>";
+		};
+		F7387E1C25709506004051C8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F7387E19257094E9004051C8 /* UndefineFuncCell.xib */,
+				F7387E1D2570951E004051C8 /* UndefineFuncCell.swift */,
+				F7387E212570A2C0004051C8 /* NormalFuncCell.xib */,
+				F7387E242570A2E4004051C8 /* NormalFuncCell.swift */,
+				F7387E272570A357004051C8 /* AddFuncCell.xib */,
+				F7387E2D2570A38F004051C8 /* AddFuncCell.swift */,
+				F7387E2A2570A364004051C8 /* RemoveFuncCell.xib */,
+				F7387E302570A399004051C8 /* RemoveFuncCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7387D22256F85F4004051C8 /* MoreFuncPage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7387D37256F85F5004051C8 /* Build configuration list for PBXNativeTarget "MoreFuncPage" */;
+			buildPhases = (
+				DA9565471D471C7806D2B366 /* [CP] Check Pods Manifest.lock */,
+				F7387D1F256F85F4004051C8 /* Sources */,
+				F7387D20256F85F4004051C8 /* Frameworks */,
+				F7387D21256F85F4004051C8 /* Resources */,
+				A173419C265EFDC3CA3A5632 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoreFuncPage;
+			productName = MoreFuncPage;
+			productReference = F7387D23256F85F4004051C8 /* MoreFuncPage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7387D1B256F85F4004051C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					F7387D22256F85F4004051C8 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = F7387D1E256F85F4004051C8 /* Build configuration list for PBXProject "MoreFuncPage" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7387D1A256F85F4004051C8;
+			productRefGroup = F7387D24256F85F4004051C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7387D22256F85F4004051C8 /* MoreFuncPage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7387D21256F85F4004051C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7387D33256F85F5004051C8 /* LaunchScreen.storyboard in Resources */,
+				F7387E522570CFBD004051C8 /* MoreFuncView.xib in Resources */,
+				F7387E1A257094E9004051C8 /* UndefineFuncCell.xib in Resources */,
+				F7387D30256F85F5004051C8 /* Assets.xcassets in Resources */,
+				F7387D60256FEA84004051C8 /* default_function.json in Resources */,
+				F7387D2E256F85F4004051C8 /* Main.storyboard in Resources */,
+				F7387E282570A357004051C8 /* AddFuncCell.xib in Resources */,
+				F7387E2B2570A364004051C8 /* RemoveFuncCell.xib in Resources */,
+				F7387E222570A2C0004051C8 /* NormalFuncCell.xib in Resources */,
+				F7387D57256FE555004051C8 /* HeaderView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A173419C265EFDC3CA3A5632 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoreFuncPage/Pods-MoreFuncPage-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoreFuncPage/Pods-MoreFuncPage-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoreFuncPage/Pods-MoreFuncPage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA9565471D471C7806D2B366 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoreFuncPage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7387D1F256F85F4004051C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7387D2B256F85F4004051C8 /* ViewController.swift in Sources */,
+				F7387D45256F890E004051C8 /* FlowLayout.swift in Sources */,
+				F7387D42256F88A8004051C8 /* CollectionView.swift in Sources */,
+				F7387E352570B202004051C8 /* FunctionManager.swift in Sources */,
+				F7387E252570A2E4004051C8 /* NormalFuncCell.swift in Sources */,
+				F7387DD62570894D004051C8 /* FunctionModel.swift in Sources */,
+				F7387D4B256F92AF004051C8 /* Application+Ex.swift in Sources */,
+				F7387E1E2570951E004051C8 /* UndefineFuncCell.swift in Sources */,
+				F7387DDC257089CE004051C8 /* FunctionsModel.swift in Sources */,
+				F7387D27256F85F4004051C8 /* AppDelegate.swift in Sources */,
+				F7387D5B256FE56B004051C8 /* HeaderView.swift in Sources */,
+				F7387D48256F927E004051C8 /* ViewController+Ex.swift in Sources */,
+				F7387E552570CFCE004051C8 /* MoreFuncView.swift in Sources */,
+				F7387D50256F94BF004051C8 /* ReusedIdentifier.swift in Sources */,
+				F7387D3E256F8700004051C8 /* MoreFuncController.swift in Sources */,
+				F7387D29256F85F4004051C8 /* SceneDelegate.swift in Sources */,
+				F7387E582570D417004051C8 /* MoreFuncScrollView.swift in Sources */,
+				F7387DD92570898A004051C8 /* GroupFunctionModel.swift in Sources */,
+				F7387E2E2570A38F004051C8 /* AddFuncCell.swift in Sources */,
+				F7387E312570A399004051C8 /* RemoveFuncCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7387D2C256F85F4004051C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7387D2D256F85F4004051C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F7387D31256F85F5004051C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7387D32256F85F5004051C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7387D35256F85F5004051C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7387D36256F85F5004051C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7387D38256F85F5004051C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A6B431945BC0119647EE731 /* Pods-MoreFuncPage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KS5QTFAS57;
+				INFOPLIST_FILE = MoreFuncPage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.shenyj.morefunc.MoreFuncPage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F7387D39256F85F5004051C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6304E605148CFCEF43A9A762 /* Pods-MoreFuncPage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KS5QTFAS57;
+				INFOPLIST_FILE = MoreFuncPage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.shenyj.morefunc.MoreFuncPage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7387D1E256F85F4004051C8 /* Build configuration list for PBXProject "MoreFuncPage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7387D35256F85F5004051C8 /* Debug */,
+				F7387D36256F85F5004051C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7387D37256F85F5004051C8 /* Build configuration list for PBXNativeTarget "MoreFuncPage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7387D38256F85F5004051C8 /* Debug */,
+				F7387D39256F85F5004051C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7387D1B256F85F4004051C8 /* Project object */;
+}

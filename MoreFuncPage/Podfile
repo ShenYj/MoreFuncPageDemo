@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+source 'https://cdn.cocoapods.org/'
+platform :ios, '13.0'
+
+inhibit_all_warnings!
+
+def libs_pods
+  pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'ObjectMapper', '~> 4.2.0'
+  pod 'SwifterSwift', '~> 5.2.0'
+  pod 'Hue', '~> 5.0.0'
+end
+
+def widgets_pods
+  pod 'SVProgressHUD', '~> 2.2.5'
+  pod 'SwiftMessages', '~> 8.0.2'
+end
+
+target 'MoreFuncPage' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  libs_pods
+  widgets_pods
+  # Pods for MoreFuncPage
+
+end

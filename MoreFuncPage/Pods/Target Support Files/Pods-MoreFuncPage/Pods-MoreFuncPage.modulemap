@@ -1,0 +1,6 @@
+framework module Pods_MoreFuncPage {
+  umbrella header "Pods-MoreFuncPage-umbrella.h"
+
+  export *
+  module * { export * }
+}

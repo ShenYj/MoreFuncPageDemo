@@ -1,0 +1,62 @@
+PODS:
+  - Hue (5.0.0)
+  - ObjectMapper (4.2.0)
+  - SVProgressHUD (2.2.5)
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
+  - SwiftMessages (8.0.2):
+    - SwiftMessages/App (= 8.0.2)
+  - SwiftMessages/App (8.0.2)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Hue (~> 5.0.0)
+  - ObjectMapper (~> 4.2.0)
+  - SVProgressHUD (~> 2.2.5)
+  - SwifterSwift (~> 5.2.0)
+  - SwiftMessages (~> 8.0.2)
+  - SwiftyJSON (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Hue
+    - ObjectMapper
+    - SVProgressHUD
+    - SwifterSwift
+    - SwiftMessages
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+  SwiftMessages: 633304165351b8e3dcbb81a71f8efcd86f9c1669
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: 6dc016960e25f025414876fdd7071a97901c993b
+
+COCOAPODS: 1.10.0
