@@ -14,4 +14,11 @@ enum ReusedIdentifier: String {
     case add        = "ReusedIdentifier.add"
     case remove     = "ReusedIdentifier.remove"
     case more       = "ReusedIdentifier.more"
+    
+    enum SupplementaryElement: String {
+        case selectedHeader = "ReusedIdentifier.SupplementaryElement.selectedHeader"
+        case selectedFooter = "ReusedIdentifier.SupplementaryElement.selectedFooter"
+        case optionalHeader = "ReusedIdentifier.SupplementaryElement.optionalHeader"
+        case optionalFooter = "ReusedIdentifier.SupplementaryElement.optionalFooter"
+    }
 }

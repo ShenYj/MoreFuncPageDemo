@@ -24,6 +24,7 @@ extension MoreFuncController {
     
     private func setupUI() {
         
+        title = "更多"
         view.backgroundColor = .white
         view.addSubview(functionsView)
     }

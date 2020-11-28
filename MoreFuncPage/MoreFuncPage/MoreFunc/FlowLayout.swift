@@ -11,12 +11,13 @@ internal class FLowLayout: UICollectionViewFlowLayout {
     
     override func prepare() {
         super.prepare()
+        
         scrollDirection = .vertical
         sectionInset = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
         minimumLineSpacing = verticalMargin
         minimumInteritemSpacing = horizontalMargin
         minimumInteritemSpacing = verticalMargin
-        //headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 90)
+        //headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 60)
         //footerReferenceSize = .zero
         itemSize = CGSize(width: itemWidth, height: itemHeight)
         collectionView?.showsVerticalScrollIndicator = true
