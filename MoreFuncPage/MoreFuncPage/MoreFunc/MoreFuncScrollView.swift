@@ -17,8 +17,8 @@ class MoreFuncScrollView: UIScrollView {
     
     var isEdit: Bool = false { didSet { refreshCollection() } }
     
-    var currentIndexPath: IndexPath? { didSet { print("currentIndexPath: \(currentIndexPath?.item)") } }
-    var sourceIndexPath: IndexPath? { didSet { print("sourceIndexPath: \(sourceIndexPath?.item)") } }
+    var currentIndexPath: IndexPath?
+    var sourceIndexPath: IndexPath?
     var snapView: UIView?
     
     /// 已选功能列表
@@ -263,8 +263,8 @@ extension MoreFuncScrollView {
         case .began:
             let location = gesture.location(in: selectedFuncsCollectionView)
             guard let indexPath = selectedFuncsCollectionView.indexPathForItem(at: location) else { return }
-            currentIndexPath = IndexPath(item: indexPath.item, section: indexPath.section)
-            sourceIndexPath = IndexPath(item: indexPath.item, section: indexPath.section)
+            currentIndexPath = indexPath
+            sourceIndexPath = indexPath
             let targetCell = selectedFuncsCollectionView.cellForItem(at: currentIndexPath!)
             guard let snap = targetCell?.snapshotView(afterScreenUpdates: true) else { return }
             snapView = snap
@@ -284,7 +284,6 @@ extension MoreFuncScrollView {
         case .ended:
             guard currentIndexPath != nil else { return }
             let sourceCell = selectedFuncsCollectionView.cellForItem(at: currentIndexPath!)
-
             UIView.animate(withDuration: 0.25) { [weak self] in
                 self?.snapView?.center = sourceCell?.center ?? .zero
             } completion: { [weak self] (finished) in
