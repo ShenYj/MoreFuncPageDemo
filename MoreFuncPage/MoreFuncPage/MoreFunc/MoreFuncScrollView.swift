@@ -17,6 +17,10 @@ class MoreFuncScrollView: UIScrollView {
     
     var isEdit: Bool = false { didSet { refreshCollection() } }
     
+    var currentIndexPath: IndexPath?
+    var sourceIndexPath: IndexPath?
+    var snapView: UIView?
+    
     /// 已选功能列表
     private lazy var selectedFuncsCollectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, collectionViewLayout: selectedLayout)
@@ -38,6 +42,9 @@ class MoreFuncScrollView: UIScrollView {
         collectionView.register(UINib(nibName: "SelectedSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.selectedHeader.rawValue)
         collectionView.register(UINib(nibName: "SelectedSectionFooter", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.selectedFooter.rawValue)
         
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(targetForSelectedFuncCollectionView(longPressGesture:)))
+        collectionView.addGestureRecognizer(longPressGesture)
+        
         return collectionView
     }()
     /// 可选功能列表
@@ -54,7 +61,6 @@ class MoreFuncScrollView: UIScrollView {
         collectionView.register(UINib(nibName: "NormalFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.normal.rawValue)
         
         collectionView.register(UINib(nibName: "OptionalSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue)
-        
         return collectionView
     }()
     
@@ -148,6 +154,7 @@ extension MoreFuncScrollView: UICollectionViewDataSource {
                     // MARK: 移除
                     self?.remove(function: function, selectedIndexPath: indexPath)
                 }
+                removeItem.isHidden = false
                 return removeItem
             } else {
                 let normalItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.normal.rawValue, for: indexPath) as! NormalFuncCell
@@ -239,5 +246,67 @@ extension MoreFuncScrollView {
     /// 可选功能
     func updateOptionalGroupFunctions() {
         optionalGroupFuncs = FunctionManager.shared.functionConfig?.optionalGroupFunctions(selectedFuncs: selectedFuncs) ?? []
+    }
+}
+
+extension MoreFuncScrollView {
+    
+    @objc private func targetForSelectedFuncCollectionView(longPressGesture gesture: UILongPressGestureRecognizer) {
+        
+        if isEdit == false {
+            isEdit = true
+        }
+        
+        switch gesture.state {
+        case .began:
+            let location = gesture.location(in: selectedFuncsCollectionView)
+            guard let indexPath = selectedFuncsCollectionView.indexPathForItem(at: location) else { return }
+            currentIndexPath = indexPath
+            sourceIndexPath = indexPath
+            let targetCell = selectedFuncsCollectionView.cellForItem(at: currentIndexPath!)
+            guard let snap = targetCell?.snapshotView(afterScreenUpdates: true) else { return }
+            snapView = snap
+            targetCell?.isHidden = true
+            selectedFuncsCollectionView.addSubview(snapView!)
+            snapView?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            snapView?.center = targetCell?.center ?? .zero
+        case .changed:
+            let location = gesture.location(in: selectedFuncsCollectionView)
+            snapView?.center = location
+            guard let indexPath = selectedFuncsCollectionView.indexPathForItem(at: location) else { return }
+            guard currentIndexPath != nil else { return }
+            guard indexPath.section == currentIndexPath!.section else { return }
+            selectedFuncsCollectionView.moveItem(at: currentIndexPath!, to: indexPath)
+            sourceIndexPath = indexPath
+        case .ended:
+            guard currentIndexPath != nil else { return }
+            let sourceCell = selectedFuncsCollectionView.cellForItem(at: currentIndexPath!)
+
+            UIView.animate(withDuration: 0.25) { [weak self] in
+                self?.snapView?.center = sourceCell?.center ?? .zero
+            } completion: { [weak self] (finished) in
+                self?.change(sourceIndexPath: self?.sourceIndexPath, toIndexPath: self?.currentIndexPath)
+                self?.snapView?.removeFromSuperview()
+                sourceCell?.isHidden = false
+                self?.snapView = nil
+                self?.currentIndexPath = nil
+                self?.sourceIndexPath = nil
+                self?.selectedFuncsCollectionView.reloadData()
+            }
+        default: break
+        }
+    }
+    
+    private func change(sourceIndexPath: IndexPath?, toIndexPath: IndexPath?) {
+        
+        guard let source = sourceIndexPath, let destination = toIndexPath, source.item != destination.item else { return }
+        guard source.item < selectedFuncs.count, destination.item < selectedFuncs.count else { return }
+        let offset = abs(source.item - destination.item)
+        if offset == 1 {
+            print("相邻交换, source: \(source.item) destination: \(destination.item)")
+        } else {
+            print("非相邻调整: \(source.item) destination: \(destination.item)")
+        }
+        selectedFuncs.swapAt(source.item, destination.item)
     }
 }
