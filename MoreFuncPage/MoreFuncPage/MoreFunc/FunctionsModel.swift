@@ -26,16 +26,10 @@ struct FunctionsModel: Mappable {
 
 extension FunctionsModel {
     
-    var allFunctions: [FunctionModel] {
-        let functions = data.flatMap { Dollar.copy($0.groupData) }
-        print(" 全部功能: \(functions.count)")
-        return functions
-    }
+    var allFunctions: [FunctionModel] { data.flatMap { Dollar.copy($0.groupData) } }
     
     /// 已选功能
-    var defaultSelectedFunctions: [FunctionModel] {
-        Dollar.remove(allFunctions, callback: { !self.default.contains($0.functionId) })
-    }
+    var defaultSelectedFunctions: [FunctionModel] { Dollar.remove(allFunctions, callback: { !self.default.contains($0.functionId) }) }
     
     /// 可选
     mutating func optionalGroupFunctions(selectedFuncs: [FunctionModel]) -> [GroupFunctionModel] {
