@@ -31,10 +31,8 @@ class MoreFuncScrollView: UIScrollView {
             + selectedLayout.headerReferenceSize.height
             + selectedLayout.footerReferenceSize.height
         
-        collectionView.frame = CGRect(x: 0,
-                                      y: 0,
-                                      width: self.bounds.width,
-                                      height: height)
+        collectionView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: height)
+        
         collectionView.register(UINib(nibName: "UndefineFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.undefine.rawValue)
         collectionView.register(UINib(nibName: "NormalFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.normal.rawValue)
         collectionView.register(UINib(nibName: "RemoveFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.remove.rawValue)
@@ -70,12 +68,7 @@ class MoreFuncScrollView: UIScrollView {
         layout.footerReferenceSize = CGSize(width: bounds.width, height: 60)
         return layout
     }()
-    private lazy var optionalLayout: FLowLayout = {
-        let layout = FLowLayout()
-        layout.headerReferenceSize = CGSize(width: bounds.width, height: 44)
-        layout.footerReferenceSize = .zero
-        return layout
-    }()
+    private lazy var optionalLayout: FLowLayout = FLowLayout()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,7 +105,7 @@ extension MoreFuncScrollView {
         
         selectedFuncsCollectionView.reloadData()
         optionalFuncsCollectionView.reloadData()
-        
+        selectedFuncsCollectionView.layoutIfNeeded()
         optionalFuncsCollectionView.layoutIfNeeded()
         let contentHeight = optionalFuncsCollectionView.contentSize.height
         let optionalY = optionalFuncsCollectionView.frame.origin.y
@@ -138,6 +131,8 @@ extension MoreFuncScrollView: UICollectionViewDataSource {
         if collectionView == optionalFuncsCollectionView { return optionalGroupFuncs[section].groupData.count }
         return 0
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -192,7 +187,7 @@ extension MoreFuncScrollView: UICollectionViewDataSource {
     }
 }
 
-extension MoreFuncScrollView: UICollectionViewDelegate {
+extension MoreFuncScrollView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -213,6 +208,23 @@ extension MoreFuncScrollView: UICollectionViewDelegate {
         
         return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue, for: indexPath) as! OptionalSectionHeader
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if collectionView == selectedFuncsCollectionView {
+            return (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).headerReferenceSize
+        }
+        if collectionView == optionalFuncsCollectionView && optionalGroupFuncs.count > section && optionalGroupFuncs[section].groupData.count > 0 {
+            return CGSize(width: bounds.width, height: 44)
+        }
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if collectionView == selectedFuncsCollectionView {
+            return (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).footerReferenceSize
+        }
+        return .zero
+    }
 }
 
 extension MoreFuncScrollView {
@@ -226,9 +238,9 @@ extension MoreFuncScrollView {
             let iconText = ["🤔", "😳", "🙄", "😶"].randomElement()!
             view.configureContent(title: "Warning", body: "已达到上限", iconText: iconText)
             view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+            view.button?.setTitle("关闭", for: .normal)
             (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
             SwiftMessages.show(view: view)
-            
             return
         }
         guard selectedFuncs.contains(function) == false else { return }
@@ -238,7 +250,6 @@ extension MoreFuncScrollView {
     }
     
     private func remove(function: FunctionModel, selectedIndexPath selIndexPath: IndexPath) {
-        //selectedFuncs = selectedFuncs.filter { $0.functionId != function.functionId }
         selectedFuncs = Dollar.remove(selectedFuncs, value: function)
         updateOptionalGroupFunctions()
         refreshCollection()
