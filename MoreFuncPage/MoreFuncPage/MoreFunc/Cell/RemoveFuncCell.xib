@@ -33,10 +33,10 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3R-W2-XNd">
-                        <rect key="frame" x="221" y="0.0" width="40" height="40"/>
+                        <rect key="frame" x="246" y="0.0" width="15" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="NXV-bG-hyy"/>
-                            <constraint firstAttribute="height" constant="40" id="fGG-co-17I"/>
+                            <constraint firstAttribute="width" constant="15" id="NXV-bG-hyy"/>
+                            <constraint firstAttribute="height" constant="15" id="fGG-co-17I"/>
                         </constraints>
                         <state key="normal" backgroundImage="remove"/>
                         <connections>

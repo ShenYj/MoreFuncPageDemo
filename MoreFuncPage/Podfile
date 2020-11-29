@@ -9,10 +9,10 @@ def libs_pods
   pod 'ObjectMapper', '~> 4.2.0'
   pod 'SwifterSwift', '~> 5.2.0'
   pod 'Hue', '~> 5.0.0'
+  pod 'Dollar', '~> 9.0.0'
 end
 
 def widgets_pods
-  pod 'SVProgressHUD', '~> 2.2.5'
   pod 'SwiftMessages', '~> 8.0.2'
 end
 

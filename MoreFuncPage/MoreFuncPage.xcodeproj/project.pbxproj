@@ -40,6 +40,7 @@
 		F7387E772572034D004051C8 /* SelectedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E762572034D004051C8 /* SelectedSectionHeader.swift */; };
 		F7387E7B257206E0004051C8 /* SelectedSectionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E7A257206E0004051C8 /* SelectedSectionFooter.xib */; };
 		F7387E7E25720942004051C8 /* SelectedSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E7D25720942004051C8 /* SelectedSectionFooter.swift */; };
+		F7387EC42573638F004051C8 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387EC32573638F004051C8 /* Copyable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		F7387E762572034D004051C8 /* SelectedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSectionHeader.swift; sourceTree = "<group>"; };
 		F7387E7A257206E0004051C8 /* SelectedSectionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedSectionFooter.xib; sourceTree = "<group>"; };
 		F7387E7D25720942004051C8 /* SelectedSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSectionFooter.swift; sourceTree = "<group>"; };
+		F7387EC32573638F004051C8 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				F7387D47256F927E004051C8 /* ViewController+Ex.swift */,
 				F7387D4A256F92AF004051C8 /* Application+Ex.swift */,
+				F7387EC32573638F004051C8 /* Copyable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				F7387DDC257089CE004051C8 /* FunctionsModel.swift in Sources */,
 				F7387D27256F85F4004051C8 /* AppDelegate.swift in Sources */,
 				F7387D48256F927E004051C8 /* ViewController+Ex.swift in Sources */,
+				F7387EC42573638F004051C8 /* Copyable.swift in Sources */,
 				F7387D50256F94BF004051C8 /* ReusedIdentifier.swift in Sources */,
 				F7387E772572034D004051C8 /* SelectedSectionHeader.swift in Sources */,
 				F7387D3E256F8700004051C8 /* MoreFuncController.swift in Sources */,

@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import Dollar
+import SwiftMessages
 
 class MoreFuncScrollView: UIScrollView {
     
-    /// 已选功能
+    // MARK: Datasource
+    var selectedFuncs: [FunctionModel] = []
+    var optionalGroupFuncs: [GroupFunctionModel] = []
+    
+    var isEdit: Bool = false { didSet { refreshCollection() } }
+    
+    /// 已选功能列表
     private lazy var selectedFuncsCollectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, collectionViewLayout: selectedLayout)
         collectionView.dataSource = self
@@ -32,7 +40,7 @@ class MoreFuncScrollView: UIScrollView {
         
         return collectionView
     }()
-    
+    /// 可选功能列表
     private lazy var optionalFuncsCollectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, collectionViewLayout: optionalLayout)
         collectionView.dataSource = self
@@ -63,10 +71,6 @@ class MoreFuncScrollView: UIScrollView {
         return layout
     }()
     
-    
-    // MARK: Datasource
-    private var functionDataSource: FunctionsModel?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -88,7 +92,9 @@ extension MoreFuncScrollView {
         addSubview(optionalFuncsCollectionView)
         
         FunctionManager.loadLocalFuncs { [weak self] (config) in
-            self?.functionDataSource = config
+            
+            self?.selectedFuncs = config?.defaultSelectedFunctions ?? []
+            self?.updateOptionalGroupFunctions()
             self?.refreshCollection()
         }
     }
@@ -97,6 +103,7 @@ extension MoreFuncScrollView {
 extension MoreFuncScrollView {
     
     private func refreshCollection() {
+        
         selectedFuncsCollectionView.reloadData()
         optionalFuncsCollectionView.reloadData()
         
@@ -116,46 +123,65 @@ extension MoreFuncScrollView {
 extension MoreFuncScrollView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == optionalFuncsCollectionView { return functionDataSource?.data.count ?? 0 }
+        if collectionView == optionalFuncsCollectionView { return optionalGroupFuncs.count }
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == selectedFuncsCollectionView { return 8 }
-        if collectionView == optionalFuncsCollectionView { return functionDataSource?.data[section].groupData.count ?? 0 }
+        if collectionView == optionalFuncsCollectionView { return optionalGroupFuncs[section].groupData.count }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let dataSource = functionDataSource else { return collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.undefine.rawValue, for: indexPath) }
-        
         if collectionView == selectedFuncsCollectionView {
-            if indexPath.item < dataSource.selectedFunctions.count {
+            
+            guard indexPath.item < selectedFuncs.count else { return collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.undefine.rawValue, for: indexPath) as! UndefineFuncCell }
+            
+            if isEdit {
+                let removeItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.remove.rawValue, for: indexPath) as! RemoveFuncCell
+                let function = selectedFuncs[indexPath.item]
+                removeItem.functionLabel.text = function.functionName
+                removeItem.functionImageView.image = UIImage(named: function.icon)
+                removeItem.clickCallback = { [weak self] in
+                    // MARK: 移除
+                    self?.remove(function: function, selectedIndexPath: indexPath)
+                }
+                return removeItem
+            } else {
                 let normalItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.normal.rawValue, for: indexPath) as! NormalFuncCell
-                normalItem.functionLabel.text = dataSource.selectedFunctions[indexPath.item].functionName
-                normalItem.functionImageView.image = UIImage(named: dataSource.selectedFunctions[indexPath.item].icon)
+                normalItem.functionLabel.text = selectedFuncs[indexPath.item].functionName
+                normalItem.functionImageView.image = UIImage(named: selectedFuncs[indexPath.item].icon)
                 return normalItem
             }
-            return collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.undefine.rawValue, for: indexPath) as! UndefineFuncCell
         }
         
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.normal.rawValue, for: indexPath) as! NormalFuncCell
-        item.functionLabel.text = dataSource.data[indexPath.section].groupData[indexPath.item].functionName
-        item.functionImageView.image = UIImage(named: dataSource.data[indexPath.section].groupData[indexPath.item].icon)
-        return item
+        if collectionView == optionalFuncsCollectionView {
+            
+            if isEdit {
+                let addItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.add.rawValue, for: indexPath) as! AddFuncCell
+                let function = optionalGroupFuncs[indexPath.section].groupData[indexPath.item]
+                addItem.functionLabel.text = function.functionName
+                addItem.functionImageView.image = UIImage(named: function.icon)
+                addItem.clickCallback = { [weak self] in
+                    // MARK: 添加
+                    self?.add(function: function, optionalIndexPath: indexPath)
+                }
+                return addItem
+            } else {
+                let normalItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.normal.rawValue, for: indexPath) as! NormalFuncCell
+                normalItem.functionLabel.text = optionalGroupFuncs[indexPath.section].groupData[indexPath.item].functionName
+                normalItem.functionImageView.image = UIImage(named: optionalGroupFuncs[indexPath.section].groupData[indexPath.item].icon)
+                return normalItem
+            }
+        }
+        
+        return collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.undefine.rawValue, for: indexPath)
     }
 }
 
 extension MoreFuncScrollView: UICollectionViewDelegate {
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//
-//        if collectionView == optionalFuncsCollectionView && functionDataSource?.data[section].groupData.isEmpty == false {
-//            return CGSize(width: self.bounds.width, height: 44)
-//        }
-//        return .zero
-//    }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -170,10 +196,48 @@ extension MoreFuncScrollView: UICollectionViewDelegate {
         
         if kind == UICollectionView.elementKindSectionHeader && collectionView == optionalFuncsCollectionView {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue, for: indexPath) as! OptionalSectionHeader
-            sectionHeader.sectionLabel.text = functionDataSource?.data[indexPath.section].groupTitle
+            sectionHeader.sectionLabel.text = optionalGroupFuncs[indexPath.section].groupTitle
             return sectionHeader
         }
         
         return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue, for: indexPath) as! OptionalSectionHeader
+    }
+}
+
+extension MoreFuncScrollView {
+    
+    private func add(function: FunctionModel, optionalIndexPath opIndexPath: IndexPath) {
+        guard selectedFuncs.count < 8 else {
+            
+            let view = MessageView.viewFromNib(layout: .cardView)
+            view.configureTheme(.warning)
+            view.configureDropShadow()
+            let iconText = ["🤔", "😳", "🙄", "😶"].randomElement()!
+            view.configureContent(title: "Warning", body: "已达到上限", iconText: iconText)
+            view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+            (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+            SwiftMessages.show(view: view)
+            
+            return
+        }
+        guard selectedFuncs.contains(function) == false else { return }
+        selectedFuncs.append(function)
+        updateOptionalGroupFunctions()
+        refreshCollection()
+    }
+    
+    private func remove(function: FunctionModel, selectedIndexPath selIndexPath: IndexPath) {
+        //selectedFuncs = selectedFuncs.filter { $0.functionId != function.functionId }
+        selectedFuncs = Dollar.remove(selectedFuncs, value: function)
+        updateOptionalGroupFunctions()
+        refreshCollection()
+    }
+}
+
+extension MoreFuncScrollView {
+    
+    /// 可选功能
+    func updateOptionalGroupFunctions() {
+        optionalGroupFuncs = FunctionManager.shared.functionConfig?.optionalGroupFunctions(selectedFuncs: selectedFuncs) ?? []
     }
 }

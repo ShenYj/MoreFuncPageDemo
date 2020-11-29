@@ -8,19 +8,32 @@
 import Foundation
 import ObjectMapper
 
-class FunctionModel: Mappable {
+struct FunctionModel: Mappable {
     
     var functionId: Int = 0
     var icon: String = ""
     var functionName: String = ""
     
+    init?(map: Map) { }
     
-    required init?(map: Map) { }
-    
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         functionId          <- map["functionId"]
         icon                <- map["icon"]
         functionName        <- map["functionName"]
     }
     
+}
+
+extension FunctionModel: Equatable {
+    
+    static func == (lhs: FunctionModel, rhs: FunctionModel) -> Bool {
+        lhs.functionId == rhs.functionId
+    }
+}
+
+extension FunctionModel: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(functionId)
+    }
 }
