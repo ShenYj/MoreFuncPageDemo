@@ -143,7 +143,11 @@ extension MoreFuncScrollView: UICollectionViewDataSource {
         
         if collectionView == selectedFuncsCollectionView {
             
-            guard indexPath.item < selectedFuncs.count else { return collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.undefine.rawValue, for: indexPath) as! UndefineFuncCell }
+            guard indexPath.item < selectedFuncs.count else {
+                let undefineItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.undefine.rawValue, for: indexPath) as! UndefineFuncCell
+                undefineItem.isHidden = false
+                return undefineItem
+            }
             
             if isEdit {
                 let removeItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.remove.rawValue, for: indexPath) as! RemoveFuncCell
@@ -276,6 +280,7 @@ extension MoreFuncScrollView {
             guard let indexPath = selectedFuncsCollectionView.indexPathForItem(at: location) else { return }
             guard currentIndexPath != nil else { return }
             guard indexPath.section == currentIndexPath!.section else { return }
+            guard let current = currentIndexPath, indexPath.item < selectedFuncs.count, current.item < selectedFuncs.count else { return }
             selectedFuncsCollectionView.moveItem(at: currentIndexPath!, to: indexPath)
             sourceIndexPath = indexPath
         case .ended:
