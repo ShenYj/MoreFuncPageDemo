@@ -17,8 +17,8 @@ class MoreFuncScrollView: UIScrollView {
     
     var isEdit: Bool = false { didSet { refreshCollection() } }
     
-    var currentIndexPath: IndexPath?
-    var sourceIndexPath: IndexPath?
+    var currentIndexPath: IndexPath? { didSet { print("currentIndexPath: \(currentIndexPath?.item)") } }
+    var sourceIndexPath: IndexPath? { didSet { print("sourceIndexPath: \(sourceIndexPath?.item)") } }
     var snapView: UIView?
     
     /// 已选功能列表
@@ -257,16 +257,14 @@ extension MoreFuncScrollView {
     
     @objc private func targetForSelectedFuncCollectionView(longPressGesture gesture: UILongPressGestureRecognizer) {
         
-        if isEdit == false {
-            isEdit = true
-        }
+        if isEdit == false { isEdit = true }
         
         switch gesture.state {
         case .began:
             let location = gesture.location(in: selectedFuncsCollectionView)
             guard let indexPath = selectedFuncsCollectionView.indexPathForItem(at: location) else { return }
-            currentIndexPath = indexPath
-            sourceIndexPath = indexPath
+            currentIndexPath = IndexPath(item: indexPath.item, section: indexPath.section)
+            sourceIndexPath = IndexPath(item: indexPath.item, section: indexPath.section)
             let targetCell = selectedFuncsCollectionView.cellForItem(at: currentIndexPath!)
             guard let snap = targetCell?.snapshotView(afterScreenUpdates: true) else { return }
             snapView = snap
@@ -277,12 +275,12 @@ extension MoreFuncScrollView {
         case .changed:
             let location = gesture.location(in: selectedFuncsCollectionView)
             snapView?.center = location
-            guard let indexPath = selectedFuncsCollectionView.indexPathForItem(at: location) else { return }
-            guard currentIndexPath != nil else { return }
-            guard indexPath.section == currentIndexPath!.section else { return }
-            guard let current = currentIndexPath, indexPath.item < selectedFuncs.count, current.item < selectedFuncs.count else { return }
-            selectedFuncsCollectionView.moveItem(at: currentIndexPath!, to: indexPath)
-            sourceIndexPath = indexPath
+            if let indexPath = selectedFuncsCollectionView.indexPathForItem(at: location),
+               let current = currentIndexPath,
+               current.section == indexPath.section {
+                selectedFuncsCollectionView.moveItem(at: current, to: indexPath)
+                currentIndexPath = indexPath
+            }
         case .ended:
             guard currentIndexPath != nil else { return }
             let sourceCell = selectedFuncsCollectionView.cellForItem(at: currentIndexPath!)
