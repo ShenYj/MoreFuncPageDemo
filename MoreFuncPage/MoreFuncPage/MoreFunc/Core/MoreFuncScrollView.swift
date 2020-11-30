@@ -372,9 +372,15 @@ extension MoreFuncScrollView {
         let offset = abs(source.item - destination.item)
         if offset == 1 {
             print("相邻交换, source: \(source.item) destination: \(destination.item)")
+            selectedFuncs.swapAt(source.item, destination.item)
         } else {
             print("非相邻调整: \(source.item) destination: \(destination.item)")
+            let sourceItem = selectedFuncs.remove(at: source.item)
+            if destination.item >= selectedFuncs.count {
+                selectedFuncs.append(sourceItem)
+            } else {
+                selectedFuncs.insert(sourceItem, at: destination.item)
+            }
         }
-        selectedFuncs.swapAt(source.item, destination.item)
     }
 }
