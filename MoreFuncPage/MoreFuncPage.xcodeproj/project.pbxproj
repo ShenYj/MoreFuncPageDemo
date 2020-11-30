@@ -42,6 +42,8 @@
 		F773A04D2574760300C0D4ED /* MoreFuncProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773A04C2574760300C0D4ED /* MoreFuncProtocol.swift */; };
 		F773A057257478FE00C0D4ED /* MoreFuncScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E572570D417004051C8 /* MoreFuncScrollView.swift */; };
 		F773A05A257479CB00C0D4ED /* MoreFuncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D3D256F8700004051C8 /* MoreFuncController.swift */; };
+		F773A0BB25748C2200C0D4ED /* OptionalSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773A0BA25748C2200C0D4ED /* OptionalSectionFooter.swift */; };
+		F773A0BE25748C4500C0D4ED /* OptionalSectionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F773A0BD25748C4500C0D4ED /* OptionalSectionFooter.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		F7387E7D25720942004051C8 /* SelectedSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSectionFooter.swift; sourceTree = "<group>"; };
 		F7387EC32573638F004051C8 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		F773A04C2574760300C0D4ED /* MoreFuncProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFuncProtocol.swift; sourceTree = "<group>"; };
+		F773A0BA25748C2200C0D4ED /* OptionalSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalSectionFooter.swift; sourceTree = "<group>"; };
+		F773A0BD25748C4500C0D4ED /* OptionalSectionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionalSectionFooter.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 				F7387E732572033F004051C8 /* SelectedSectionHeader.xib */,
 				F7387E7A257206E0004051C8 /* SelectedSectionFooter.xib */,
 				F7387E672570DE73004051C8 /* OptionalSectionHeader.xib */,
+				F773A0BD25748C4500C0D4ED /* OptionalSectionFooter.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				F7387E762572034D004051C8 /* SelectedSectionHeader.swift */,
 				F7387E7D25720942004051C8 /* SelectedSectionFooter.swift */,
 				F7387E632570DE4B004051C8 /* OptionalSectionHeader.swift */,
+				F773A0BA25748C2200C0D4ED /* OptionalSectionFooter.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 				F7387E7425720340004051C8 /* SelectedSectionHeader.xib in Resources */,
 				F7387E1A257094E9004051C8 /* UndefineFuncCell.xib in Resources */,
 				F7387D30256F85F5004051C8 /* Assets.xcassets in Resources */,
+				F773A0BE25748C4500C0D4ED /* OptionalSectionFooter.xib in Resources */,
 				F7387D60256FEA84004051C8 /* default_function.json in Resources */,
 				F7387D2E256F85F4004051C8 /* Main.storyboard in Resources */,
 				F7387E282570A357004051C8 /* AddFuncCell.xib in Resources */,
@@ -387,6 +394,7 @@
 				F7387D27256F85F4004051C8 /* AppDelegate.swift in Sources */,
 				F7387D48256F927E004051C8 /* ViewController+Ex.swift in Sources */,
 				F7387EC42573638F004051C8 /* Copyable.swift in Sources */,
+				F773A0BB25748C2200C0D4ED /* OptionalSectionFooter.swift in Sources */,
 				F7387D50256F94BF004051C8 /* ReusedIdentifier.swift in Sources */,
 				F7387E772572034D004051C8 /* SelectedSectionHeader.swift in Sources */,
 				F7387D29256F85F4004051C8 /* SceneDelegate.swift in Sources */,

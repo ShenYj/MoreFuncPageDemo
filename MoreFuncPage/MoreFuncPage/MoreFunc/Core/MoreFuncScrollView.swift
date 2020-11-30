@@ -61,6 +61,7 @@ class MoreFuncScrollView: UIScrollView {
         collectionView.register(UINib(nibName: "NormalFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.normal.rawValue)
         
         collectionView.register(UINib(nibName: "OptionalSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue)
+        collectionView.register(UINib(nibName: "OptionalSectionFooter", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalFooter.rawValue)
         return collectionView
     }()
     
@@ -87,7 +88,7 @@ extension MoreFuncScrollView {
     private func setupUI() {
         
         bounces = false
-        backgroundColor = .white
+        backgroundColor = .systemOrange
         contentInsetAdjustmentBehavior = .never
         addSubview(selectedFuncsCollectionView)
         addSubview(optionalFuncsCollectionView)
@@ -207,6 +208,11 @@ extension MoreFuncScrollView: UICollectionViewDelegateFlowLayout {
             sectionHeader.sectionLabel.text = optionalGroupFuncs[indexPath.section].groupTitle
             return sectionHeader
         }
+        if kind == UICollectionView.elementKindSectionFooter && collectionView == optionalFuncsCollectionView
+            && ( optionalGroupFuncs.isEmpty == false && indexPath.section == optionalGroupFuncs.count - 1 ) {
+            let sectionFooter = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalFooter.rawValue, for: indexPath) as! OptionalSectionFooter
+            return sectionFooter
+        }
         
         return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue, for: indexPath) as! OptionalSectionHeader
     }
@@ -226,6 +232,9 @@ extension MoreFuncScrollView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         if collectionView == selectedFuncsCollectionView {
             return (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).footerReferenceSize
+        }
+        if collectionView == optionalFuncsCollectionView && optionalGroupFuncs.isEmpty == false && section == optionalGroupFuncs.count - 1 {
+            return CGSize(width: collectionView.bounds.width, height: 80)
         }
         return .zero
     }
