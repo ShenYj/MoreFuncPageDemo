@@ -10,10 +10,6 @@
 
 ## 静态效果图
 
-- 默认状态
-
-    <img src="https://github.com/ShenYj/MoreFuncPageDemo/blob/main/screenshot/default.png?raw=true" width="390" height="844"/>
-
-- 编辑状态
-
-    <img src="https://github.com/ShenYj/MoreFuncPageDemo/blob/main/screenshot/editing.png?raw=true" width="390" height="844"/>
+|     默认状态                               |     编辑状态                                |
+|:-----------------------------------------:|:------------------------------------------:|
+| <img src="https://github.com/ShenYj/MoreFuncPageDemo/blob/main/screenshot/default.png?raw=true" width="390" height="844"/> | <img src="https://github.com/ShenYj/MoreFuncPageDemo/blob/main/screenshot/editing.png?raw=true" width="390" height="844"/> |
