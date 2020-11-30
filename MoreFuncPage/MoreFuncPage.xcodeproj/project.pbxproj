@@ -14,7 +14,6 @@
 		F7387D2E256F85F4004051C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7387D2C256F85F4004051C8 /* Main.storyboard */; };
 		F7387D30256F85F5004051C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7387D2F256F85F5004051C8 /* Assets.xcassets */; };
 		F7387D33256F85F5004051C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7387D31256F85F5004051C8 /* LaunchScreen.storyboard */; };
-		F7387D3E256F8700004051C8 /* MoreFuncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D3D256F8700004051C8 /* MoreFuncController.swift */; };
 		F7387D42256F88A8004051C8 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D41256F88A8004051C8 /* CollectionView.swift */; };
 		F7387D45256F890E004051C8 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D44256F890E004051C8 /* FlowLayout.swift */; };
 		F7387D48256F927E004051C8 /* ViewController+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D47256F927E004051C8 /* ViewController+Ex.swift */; };
@@ -33,7 +32,6 @@
 		F7387E2E2570A38F004051C8 /* AddFuncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E2D2570A38F004051C8 /* AddFuncCell.swift */; };
 		F7387E312570A399004051C8 /* RemoveFuncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E302570A399004051C8 /* RemoveFuncCell.swift */; };
 		F7387E352570B202004051C8 /* FunctionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E342570B202004051C8 /* FunctionManager.swift */; };
-		F7387E582570D417004051C8 /* MoreFuncScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E572570D417004051C8 /* MoreFuncScrollView.swift */; };
 		F7387E642570DE4B004051C8 /* OptionalSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E632570DE4B004051C8 /* OptionalSectionHeader.swift */; };
 		F7387E682570DE73004051C8 /* OptionalSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E672570DE73004051C8 /* OptionalSectionHeader.xib */; };
 		F7387E7425720340004051C8 /* SelectedSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E732572033F004051C8 /* SelectedSectionHeader.xib */; };
@@ -41,6 +39,9 @@
 		F7387E7B257206E0004051C8 /* SelectedSectionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7387E7A257206E0004051C8 /* SelectedSectionFooter.xib */; };
 		F7387E7E25720942004051C8 /* SelectedSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E7D25720942004051C8 /* SelectedSectionFooter.swift */; };
 		F7387EC42573638F004051C8 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387EC32573638F004051C8 /* Copyable.swift */; };
+		F773A04D2574760300C0D4ED /* MoreFuncProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773A04C2574760300C0D4ED /* MoreFuncProtocol.swift */; };
+		F773A057257478FE00C0D4ED /* MoreFuncScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387E572570D417004051C8 /* MoreFuncScrollView.swift */; };
+		F773A05A257479CB00C0D4ED /* MoreFuncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D3D256F8700004051C8 /* MoreFuncController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		F7387E7A257206E0004051C8 /* SelectedSectionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedSectionFooter.xib; sourceTree = "<group>"; };
 		F7387E7D25720942004051C8 /* SelectedSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSectionFooter.swift; sourceTree = "<group>"; };
 		F7387EC32573638F004051C8 /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
+		F773A04C2574760300C0D4ED /* MoreFuncProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFuncProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				F7387D3C256F86E9004051C8 /* MoreFunc */,
+				F7387D3D256F8700004051C8 /* MoreFuncController.swift */,
 				F7387D26256F85F4004051C8 /* AppDelegate.swift */,
 				F7387D28256F85F4004051C8 /* SceneDelegate.swift */,
 				F7387D2A256F85F4004051C8 /* ViewController.swift */,
@@ -149,16 +152,12 @@
 		F7387D3C256F86E9004051C8 /* MoreFunc */ = {
 			isa = PBXGroup;
 			children = (
+				F773A04B257475D700C0D4ED /* Core */,
 				F7387D55256FE4E0004051C8 /* Extension */,
 				F7387D5E256FEA33004051C8 /* MockData */,
 				F7387D59256FE55F004051C8 /* view */,
 				F7387E1C25709506004051C8 /* Cell */,
 				F7387D54256FE4D7004051C8 /* xib */,
-				F7387D3D256F8700004051C8 /* MoreFuncController.swift */,
-				F7387E572570D417004051C8 /* MoreFuncScrollView.swift */,
-				F7387D44256F890E004051C8 /* FlowLayout.swift */,
-				F7387D4F256F94BF004051C8 /* ReusedIdentifier.swift */,
-				F7387D41256F88A8004051C8 /* CollectionView.swift */,
 			);
 			path = MoreFunc;
 			sourceTree = "<group>";
@@ -218,6 +217,18 @@
 				F7387E302570A399004051C8 /* RemoveFuncCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F773A04B257475D700C0D4ED /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F7387E572570D417004051C8 /* MoreFuncScrollView.swift */,
+				F773A04C2574760300C0D4ED /* MoreFuncProtocol.swift */,
+				F7387D44256F890E004051C8 /* FlowLayout.swift */,
+				F7387D4F256F94BF004051C8 /* ReusedIdentifier.swift */,
+				F7387D41256F88A8004051C8 /* CollectionView.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +353,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F773A05A257479CB00C0D4ED /* MoreFuncController.swift in Sources */,
+				F773A057257478FE00C0D4ED /* MoreFuncScrollView.swift in Sources */,
 				F7387D2B256F85F4004051C8 /* ViewController.swift in Sources */,
 				F7387D45256F890E004051C8 /* FlowLayout.swift in Sources */,
 				F7387E642570DE4B004051C8 /* OptionalSectionHeader.swift in Sources */,
@@ -349,6 +362,7 @@
 				F7387E352570B202004051C8 /* FunctionManager.swift in Sources */,
 				F7387E252570A2E4004051C8 /* NormalFuncCell.swift in Sources */,
 				F7387DD62570894D004051C8 /* FunctionModel.swift in Sources */,
+				F773A04D2574760300C0D4ED /* MoreFuncProtocol.swift in Sources */,
 				F7387D4B256F92AF004051C8 /* Application+Ex.swift in Sources */,
 				F7387E1E2570951E004051C8 /* UndefineFuncCell.swift in Sources */,
 				F7387DDC257089CE004051C8 /* FunctionsModel.swift in Sources */,
@@ -357,9 +371,7 @@
 				F7387EC42573638F004051C8 /* Copyable.swift in Sources */,
 				F7387D50256F94BF004051C8 /* ReusedIdentifier.swift in Sources */,
 				F7387E772572034D004051C8 /* SelectedSectionHeader.swift in Sources */,
-				F7387D3E256F8700004051C8 /* MoreFuncController.swift in Sources */,
 				F7387D29256F85F4004051C8 /* SceneDelegate.swift in Sources */,
-				F7387E582570D417004051C8 /* MoreFuncScrollView.swift in Sources */,
 				F7387DD92570898A004051C8 /* GroupFunctionModel.swift in Sources */,
 				F7387E7E25720942004051C8 /* SelectedSectionFooter.swift in Sources */,
 				F7387E2E2570A38F004051C8 /* AddFuncCell.swift in Sources */,

@@ -21,6 +21,8 @@ class MoreFuncScrollView: UIScrollView {
     var sourceIndexPath: IndexPath?
     var snapView: UIView?
     
+    weak var moreFuncDelegate: MoreFuncProtocol?
+    
     /// 已选功能列表
     private lazy var selectedFuncsCollectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, collectionViewLayout: selectedLayout)
@@ -269,6 +271,9 @@ extension MoreFuncScrollView {
     @objc private func targetForSelectedFuncCollectionView(longPressGesture gesture: UILongPressGestureRecognizer) {
         
         if isEdit == false { isEdit = true }
+        if moreFuncDelegate != nil {
+            moreFuncDelegate?.moreFuncView(self, inEditStatus: isEdit)
+        }
         
         switch gesture.state {
         case .began:
