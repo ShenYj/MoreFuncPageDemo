@@ -156,7 +156,6 @@ extension MoreFuncScrollView: UICollectionViewDataSource {
                     // MARK: 移除
                     self?.remove(function: function, selectedIndexPath: indexPath)
                 }
-//                removeItem.isHidden = false
                 removeItem.isEditing = isEdit
                 return removeItem
             } else {
