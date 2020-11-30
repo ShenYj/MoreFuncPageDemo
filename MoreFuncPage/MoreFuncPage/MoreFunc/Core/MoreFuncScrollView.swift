@@ -271,8 +271,8 @@ extension MoreFuncScrollView {
     @objc private func targetForSelectedFuncCollectionView(longPressGesture gesture: UILongPressGestureRecognizer) {
         
         if isEdit == false { isEdit = true }
-        if moreFuncDelegate != nil {
-            moreFuncDelegate?.moreFuncView(self, inEditStatus: isEdit)
+        if let delegate = moreFuncDelegate {
+            delegate.moreFuncView?(self, inEditStatus: isEdit)
         }
         
         switch gesture.state {

@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol MoreFuncProtocol: NSObjectProtocol {
+/// 感受一下Swift下实现optional协议的方式, 非必要, 默认必须实现
+@objc protocol MoreFuncProtocol: NSObjectProtocol {
     
-    func moreFuncView(_ moreFuncView: MoreFuncScrollView, inEditStatus isEditing: Bool) -> Void
+    @objc optional func moreFuncView(_ moreFuncView: MoreFuncScrollView, inEditStatus isEditing: Bool) -> Void
 }

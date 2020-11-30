@@ -17,8 +17,6 @@ internal class FLowLayout: UICollectionViewFlowLayout {
         minimumLineSpacing = verticalMargin
         minimumInteritemSpacing = horizontalMargin
         minimumInteritemSpacing = verticalMargin
-        //headerReferenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: 60)
-        //footerReferenceSize = .zero
         itemSize = CGSize(width: itemWidth, height: itemHeight)
         collectionView?.showsVerticalScrollIndicator = true
         collectionView?.showsHorizontalScrollIndicator = false
