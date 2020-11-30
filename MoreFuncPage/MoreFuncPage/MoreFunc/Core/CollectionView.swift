@@ -27,5 +27,3 @@ extension CollectionView {
         backgroundColor = .white
     }
 }
-
-

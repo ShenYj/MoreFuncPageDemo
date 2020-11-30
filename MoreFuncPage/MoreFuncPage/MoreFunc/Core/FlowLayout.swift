@@ -21,11 +21,13 @@ internal class FLowLayout: UICollectionViewFlowLayout {
         collectionView?.showsVerticalScrollIndicator = true
         collectionView?.showsHorizontalScrollIndicator = false
         sectionHeadersPinToVisibleBounds = true
+        
     }
     
     var rowItemCount: Int { 4 }
     var horizontalMargin: CGFloat { 5 }
     var verticalMargin: CGFloat { 5 }
-    var itemWidth: CGFloat { get { (UIScreen.main.bounds.size.width - CGFloat((rowItemCount + 1)) * horizontalMargin) / CGFloat(rowItemCount) } }
-    var itemHeight: CGFloat { get { itemWidth * 1.0 } }
+    var itemWidth: CGFloat { (UIScreen.main.bounds.width - CGFloat((rowItemCount + 1)) * horizontalMargin) / CGFloat(rowItemCount) }
+    var itemHeight: CGFloat { itemWidth * 1.0 }
+    
 }

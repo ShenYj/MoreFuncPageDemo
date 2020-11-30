@@ -215,7 +215,9 @@ extension MoreFuncScrollView: UICollectionViewDelegateFlowLayout {
         if collectionView == selectedFuncsCollectionView {
             return (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).headerReferenceSize
         }
-        if collectionView == optionalFuncsCollectionView && optionalGroupFuncs.count > section && optionalGroupFuncs[section].groupData.count > 0 {
+        if collectionView == optionalFuncsCollectionView
+            && ( optionalGroupFuncs.isEmpty == false && optionalGroupFuncs.count > section)
+            && optionalGroupFuncs[section].groupData.isEmpty == false {
             return CGSize(width: bounds.width, height: 44)
         }
         return .zero
