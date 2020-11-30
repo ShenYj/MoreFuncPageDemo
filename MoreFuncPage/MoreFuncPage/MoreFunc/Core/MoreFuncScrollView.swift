@@ -104,7 +104,7 @@ extension MoreFuncScrollView {
 
 extension MoreFuncScrollView {
     
-    private func refreshCollection() {
+    @objc private func refreshCollection() {
         
         selectedFuncsCollectionView.reloadData()
         optionalFuncsCollectionView.reloadData()
@@ -156,7 +156,8 @@ extension MoreFuncScrollView: UICollectionViewDataSource {
                     // MARK: 移除
                     self?.remove(function: function, selectedIndexPath: indexPath)
                 }
-                removeItem.isHidden = false
+//                removeItem.isHidden = false
+                removeItem.isEditing = isEdit
                 return removeItem
             } else {
                 let normalItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.normal.rawValue, for: indexPath) as! NormalFuncCell
@@ -177,6 +178,7 @@ extension MoreFuncScrollView: UICollectionViewDataSource {
                     // MARK: 添加
                     self?.add(function: function, optionalIndexPath: indexPath)
                 }
+                addItem.isEditing = isEdit
                 return addItem
             } else {
                 let normalItem = collectionView.dequeueReusableCell(withReuseIdentifier: ReusedIdentifier.normal.rawValue, for: indexPath) as! NormalFuncCell
@@ -258,6 +260,44 @@ extension MoreFuncScrollView {
         }
         guard selectedFuncs.contains(function) == false else { return }
         selectedFuncs.append(function)
+        
+        /// 添加动画
+        if let optionalCell = optionalFuncsCollectionView.cellForItem(at: opIndexPath) as? AddFuncCell {
+            
+            /// 在镜像中隐藏掉添加按钮 && 防止连续点击
+            optionalCell.isEditing = false
+            
+            if let snapCell = optionalCell.snapshotView(afterScreenUpdates: true) {
+                
+                let sourceRect = optionalCell.convert(optionalCell.bounds, to: self)
+                let destinationIndexPath = IndexPath(item: selectedFuncs.count - 1, section: 0)
+                if let destinationCell = selectedFuncsCollectionView.cellForItem(at: destinationIndexPath) {
+                    destinationCell.isHidden = true
+                    let destinationRect = destinationCell.convert(destinationCell.bounds, to: self)
+                    
+                    addSubview(snapCell)
+                    let spring = CASpringAnimation(keyPath: "position")
+                    spring.damping = 80
+                    spring.stiffness = 120
+                    spring.mass = 2
+                    spring.initialVelocity = 10
+                    spring.isRemovedOnCompletion = false
+                    spring.fillMode = .forwards
+                    spring.fromValue = CGPoint(x: sourceRect.origin.x + 0.5 * optionalCell.bounds.width, y: sourceRect.origin.y + 0.5 * optionalCell.bounds.height)
+                    spring.toValue = CGPoint(x: destinationRect.origin.x + 0.5 * destinationCell.bounds.width, y: destinationRect.origin.y + 0.5 * destinationCell.bounds.height)
+                    spring.duration = spring.settlingDuration
+                    
+                    snapCell.layer.add(spring, forKey: "springAnimation")
+                    
+                    snapCell.perform(#selector(removeFromSuperview), with: nil, afterDelay: spring.duration)
+                    
+                    selectedFuncsCollectionView.perform(#selector(UICollectionView.reloadData), with: nil, afterDelay: spring.duration)
+                    updateOptionalGroupFunctions()
+                    perform(#selector(self.refreshCollection), with: nil, afterDelay: spring.duration)
+                    return
+                }
+            }
+        }
         updateOptionalGroupFunctions()
         refreshCollection()
     }

@@ -10,6 +10,15 @@ import UIKit
 class AddFuncCell: UICollectionViewCell {
     
     var clickCallback: (() -> Void)?
+    var isEditing: Bool = true {
+        didSet {
+            if isEditing {
+                addFunctionButton.isHidden = false
+            } else {
+                addFunctionButton.isHidden = true
+            }
+        }
+    }
     
     @IBOutlet weak var addFunctionButton: UIButton!
     @IBOutlet weak var functionImageView: UIImageView!

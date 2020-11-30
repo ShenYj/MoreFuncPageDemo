@@ -10,6 +10,15 @@ import UIKit
 class RemoveFuncCell: UICollectionViewCell {
     
     var clickCallback: (() -> Void)?
+    var isEditing: Bool = true {
+        didSet {
+            if isEditing {
+                removeButton.isHidden = false
+            } else {
+                removeButton.isHidden = true
+            }
+        }
+    }
     
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var functionLabel: UILabel!
