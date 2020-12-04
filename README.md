@@ -1,6 +1,4 @@
-# MoreFuncPageDemo
-
-## 更多定制功能页demo, 这是一个Swift 版本
+# 更多定制功能页demo, 这是一个Swift 版本
 
 > 项目集成了`Swiftlint`, 有本地编译不过的可以在`build phases`注释掉执行脚本
 
