@@ -9,13 +9,24 @@ import UIKit
 import Dollar
 import SwiftMessages
 
+
+extension MoreFuncScrollView {
+    
+    
+    /// 外接调整编辑状态的接口
+    /// - Parameter isEditing: 将被设置成的状态
+    func changeEditStatus(isEditing: Bool) {
+        isEdit = isEditing
+    }
+}
+
 class MoreFuncScrollView: UIScrollView {
     
     // MARK: Datasource
     var selectedFuncs: [FunctionModel] = []
     var optionalGroupFuncs: [GroupFunctionModel] = []
     
-    var isEdit: Bool = false {
+    private(set) var isEdit: Bool = false {
         didSet {
             refreshCollection()
             if let delegate = moreFuncDelegate {
