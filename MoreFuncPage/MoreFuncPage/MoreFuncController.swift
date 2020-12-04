@@ -23,6 +23,15 @@ internal class MoreFuncController: UIViewController {
         btn.addTarget(self, action: #selector(targetForEdit(sender:)), for: .touchUpInside)
         return btn
     }()
+    
+    private lazy var backOrCancelButton: UIButton = {
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 44))
+        btn.setTitle("返回", for: .normal)
+        btn.setTitleColor(.orange, for: .normal)
+        btn.setTitleColor(.yellow, for: .highlighted)
+        btn.addTarget(self, action: #selector(targetForGobackOrCancel(sender:)), for: .touchUpInside)
+        return btn
+    }()
 }
 
 extension MoreFuncController {
@@ -37,7 +46,7 @@ extension MoreFuncController {
         title = "更多"
         view.backgroundColor = .white
         view.addSubview(functionsView)
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backOrCancelButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: editButton)
     }
     
@@ -55,11 +64,30 @@ extension MoreFuncController {
             editButton.setTitle("编辑", for: .normal)
         }
     }
+    
+    @objc private func targetForGobackOrCancel(sender: UIButton) {
+        if functionsView.isEdit {
+            functionsView.changeEditStatus(isEditing: !functionsView.isEdit, reset: true)
+            
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    private func updateBackOrCancelButton(isEditing: Bool) {
+        
+        if isEditing {
+            backOrCancelButton.setTitle("取消", for: .normal)
+        } else {
+            backOrCancelButton.setTitle("返回", for: .normal)
+        }
+    }
 }
 
 extension MoreFuncController: MoreFuncProtocol {
     
     func moreFuncView(_ moreFuncView: MoreFuncScrollView, inEditStatus isEditing: Bool) {
         updateEditButton(isEditing: isEditing)
+        updateBackOrCancelButton(isEditing: isEditing)
     }
 }
