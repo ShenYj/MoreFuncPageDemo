@@ -32,20 +32,22 @@ class MoreFuncScrollView: UIScrollView {
     
     private var needReset: Bool = false
     private(set) var isEdit: Bool = false {
-        didSet {
-            
-            if isEdit {
+        willSet {
+            // 即将进入编辑状态
+            if newValue {
                 defaultSelectedFuncs = selectedFuncs
                 defaultOptionalGroupFuncs = optionalGroupFuncs
-            } else {
-                // 取消编辑并需要恢复到编辑前的状态
-                if needReset {
-                    selectedFuncs = defaultSelectedFuncs
-                    optionalGroupFuncs = defaultOptionalGroupFuncs
-                }
+                return
+            }
+            // 即将取消编辑并需要恢复到编辑前的状态
+            if needReset {
+                selectedFuncs = defaultSelectedFuncs
+                optionalGroupFuncs = defaultOptionalGroupFuncs
                 defaultSelectedFuncs.removeAll(keepingCapacity: true)
                 defaultOptionalGroupFuncs.removeAll(keepingCapacity: true)
             }
+        }
+        didSet {
             refreshCollection()
             guard let delegate = moreFuncDelegate else { return }
             delegate.moreFuncView?(self, inEditStatus: isEdit)
