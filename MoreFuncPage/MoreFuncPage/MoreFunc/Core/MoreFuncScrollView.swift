@@ -15,7 +15,14 @@ class MoreFuncScrollView: UIScrollView {
     var selectedFuncs: [FunctionModel] = []
     var optionalGroupFuncs: [GroupFunctionModel] = []
     
-    var isEdit: Bool = false { didSet { refreshCollection() } }
+    var isEdit: Bool = false {
+        didSet {
+            refreshCollection()
+            if let delegate = moreFuncDelegate {
+                delegate.moreFuncView?(self, inEditStatus: isEdit)
+            }
+        }
+    }
     
     var currentIndexPath: IndexPath?
     var sourceIndexPath: IndexPath?
@@ -321,9 +328,6 @@ extension MoreFuncScrollView {
     @objc private func targetForSelectedFuncCollectionView(longPressGesture gesture: UILongPressGestureRecognizer) {
         
         if isEdit == false { isEdit = true }
-        if let delegate = moreFuncDelegate {
-            delegate.moreFuncView?(self, inEditStatus: isEdit)
-        }
         
         switch gesture.state {
         case .began:
