@@ -15,7 +15,8 @@ extension MoreFuncScrollView {
     
     /// 外接调整编辑状态的接口
     /// - Parameter isEditing: 将被设置成的状态
-    func changeEditStatus(isEditing: Bool) {
+    func changeEditStatus(isEditing: Bool, reset: Bool = false) {
+        needReset = reset
         isEdit = isEditing
     }
 }
@@ -25,13 +26,29 @@ class MoreFuncScrollView: UIScrollView {
     // MARK: Datasource
     var selectedFuncs: [FunctionModel] = []
     var optionalGroupFuncs: [GroupFunctionModel] = []
+    // MARK: 用于编辑状态下重置的数据
+    var defaultSelectedFuncs: [FunctionModel] = []
+    var defaultOptionalGroupFuncs: [GroupFunctionModel] = []
     
+    private var needReset: Bool = false
     private(set) var isEdit: Bool = false {
         didSet {
-            refreshCollection()
-            if let delegate = moreFuncDelegate {
-                delegate.moreFuncView?(self, inEditStatus: isEdit)
+            
+            if isEdit {
+                defaultSelectedFuncs = selectedFuncs
+                defaultOptionalGroupFuncs = optionalGroupFuncs
+            } else {
+                // 取消编辑并需要恢复到编辑前的状态
+                if needReset {
+                    selectedFuncs = defaultSelectedFuncs
+                    optionalGroupFuncs = defaultOptionalGroupFuncs
+                }
+                defaultSelectedFuncs.removeAll(keepingCapacity: true)
+                defaultOptionalGroupFuncs.removeAll(keepingCapacity: true)
             }
+            refreshCollection()
+            guard let delegate = moreFuncDelegate else { return }
+            delegate.moreFuncView?(self, inEditStatus: isEdit)
         }
     }
     
