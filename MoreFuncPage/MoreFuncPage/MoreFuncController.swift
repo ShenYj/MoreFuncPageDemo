@@ -43,7 +43,7 @@ extension MoreFuncController {
     
     
     @objc private func targetForEdit(sender: UIBarButtonItem) {
-        functionsView.isEdit = !functionsView.isEdit
+        functionsView.changeEditStatus(isEditing: !functionsView.isEdit)
         updateEditButton(isEditing: functionsView.isEdit)
     }
     
