@@ -8,10 +8,9 @@
 import UIKit
 import Dollar
 import SwiftMessages
-
+import SkeletonView
 
 extension MoreFuncScrollView {
-    
     
     /// 外接调整编辑状态的接口
     /// - Parameter isEditing: 将被设置成的状态
@@ -89,6 +88,7 @@ class MoreFuncScrollView: UIScrollView {
         let collectionView = CollectionView(frame: .zero, collectionViewLayout: optionalLayout)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.isSkeletonable = true
         let coorY = selectedFuncsCollectionView.frame.height
         collectionView.frame = CGRect(x: 0,
                                       y: coorY,
@@ -96,6 +96,8 @@ class MoreFuncScrollView: UIScrollView {
                                       height: bounds.height - coorY)
         collectionView.register(UINib(nibName: "AddFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.add.rawValue)
         collectionView.register(UINib(nibName: "NormalFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.normal.rawValue)
+        // 占位使用
+        collectionView.register(UINib(nibName: "UndefineFuncCell", bundle: nil), forCellWithReuseIdentifier: ReusedIdentifier.undefine.rawValue)
         
         collectionView.register(UINib(nibName: "OptionalSectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue)
         collectionView.register(UINib(nibName: "OptionalSectionFooter", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ReusedIdentifier.SupplementaryElement.optionalFooter.rawValue)
@@ -126,11 +128,14 @@ extension MoreFuncScrollView {
         
         bounces = false
         backgroundColor = .systemOrange
+        optionalFuncsCollectionView.showAnimatedGradientSkeleton()
         contentInsetAdjustmentBehavior = .never
         addSubview(selectedFuncsCollectionView)
         addSubview(optionalFuncsCollectionView)
         
         FunctionManager.loadLocalFuncs { [weak self] (config) in
+            
+            self?.optionalFuncsCollectionView.hideSkeleton(transition: .crossDissolve(0.25))
             
             self?.selectedFuncs = config?.defaultSelectedFunctions ?? []
             self?.updateOptionalGroupFunctions()
@@ -417,4 +422,12 @@ extension MoreFuncScrollView {
             }
         }
     }
+}
+
+extension MoreFuncScrollView: SkeletonCollectionViewDataSource {
+   
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int { 2 }
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 10 }
+    func collectionSkeletonView(_ skeletonView: UICollectionView, supplementaryViewIdentifierOfKind: String, at indexPath: IndexPath) -> ReusableCellIdentifier? { ReusedIdentifier.SupplementaryElement.optionalHeader.rawValue }
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier { ReusedIdentifier.undefine.rawValue }
 }

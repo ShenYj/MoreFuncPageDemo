@@ -14,6 +14,7 @@ end
 
 def widgets_pods
   pod 'SwiftMessages', '~> 8.0.2'
+  pod 'SkeletonView', '~> 1.11.0'
 end
 
 target 'MoreFuncPage' do

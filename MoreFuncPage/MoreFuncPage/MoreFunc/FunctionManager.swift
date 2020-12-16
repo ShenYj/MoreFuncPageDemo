@@ -40,11 +40,13 @@ extension FunctionManager {
                     return
                 }
                 FunctionManager.shared.functionConfig = funcConfig
+                // 模拟耗时
+                sleep(1)
                 DispatchQueue.main.async {
                     callback(funcConfig)
                 }
             } catch {
-                print("捕获异常")
+                print("捕获异常: \(error)")
                 DispatchQueue.main.async {
                     callback(nil)
                 }
