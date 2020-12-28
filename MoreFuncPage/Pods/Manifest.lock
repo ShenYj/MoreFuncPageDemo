@@ -47,6 +47,7 @@ DEPENDENCIES:
   - Dollar (~> 9.0.0)
   - Hue (~> 5.0.0)
   - ObjectMapper (~> 4.2.0)
+  - RxCocoa (~> 5.1.1)
   - RxSwift (~> 5.1.1)
   - SkeletonView (~> 1.11.0)
   - SwifterSwift (~> 5.2.0)
@@ -80,6 +81,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 633304165351b8e3dcbb81a71f8efcd86f9c1669
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 9e97caf6e745a59a014382ef00d94278c55971f7
+PODFILE CHECKSUM: 34dc39ca94e9b5bacb6e0fd1122ac7f6a230c69c
 
 COCOAPODS: 1.10.0
