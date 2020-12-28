@@ -10,6 +10,8 @@ def libs_pods
   pod 'SwifterSwift', '~> 5.2.0'
   pod 'Hue', '~> 5.0.0'
   pod 'Dollar', '~> 9.0.0'
+  pod 'RxSwift', '~> 5.1.1'
+  pod 'Action', '~> 4.2.0'
 end
 
 def widgets_pods

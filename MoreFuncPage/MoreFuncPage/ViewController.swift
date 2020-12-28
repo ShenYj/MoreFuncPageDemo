@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import RxSwift
+import Action
 
 class ViewController: UIViewController {
-
+    
+    var disposeBag: DisposeBag = DisposeBag()
+    
+    /// 更多功能
+    @IBOutlet weak var moreFuncButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-
-    @IBAction func targetForPushButton(_ sender: UIButton) {
-        navigationController?.pushViewController(MoreFuncController(), animated: true)
+        _ = moreFuncButton.rx.tap.subscribe { [weak self] (onNext) in self?.navigationController?.pushViewController(MoreFuncController(), animated: true) }
+            .disposed(by: disposeBag)
     }
     
 }
