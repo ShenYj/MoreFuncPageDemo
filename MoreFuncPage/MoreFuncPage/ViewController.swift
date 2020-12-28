@@ -7,7 +7,7 @@
 
 import UIKit
 import RxSwift
-import Action
+import RxCocoa
 
 class ViewController: UIViewController {
     
@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        _ = moreFuncButton.rx.tap.subscribe { [weak self] (onNext) in self?.navigationController?.pushViewController(MoreFuncController(), animated: true) }
-            .disposed(by: disposeBag)
+        moreFuncButton.rx.tap.subscribe { [weak self] (onNext) in self?.navigationController?.pushViewController(MoreFuncController(), animated: true) }.disposed(by: disposeBag)
+        
     }
     
 }

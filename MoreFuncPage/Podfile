@@ -12,7 +12,7 @@ def libs_pods
   pod 'Dollar', '~> 9.0.0'
   pod 'RxSwift', '~> 5.1.1'
   pod 'RxCocoa', '~> 5.1.1'
-  pod 'Action', '~> 4.2.0'
+  #pod 'Action', '~> 4.2.0'
 end
 
 def widgets_pods

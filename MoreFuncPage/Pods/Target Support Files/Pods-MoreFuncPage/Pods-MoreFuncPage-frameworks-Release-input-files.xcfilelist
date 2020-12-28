@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-MoreFuncPage/Pods-MoreFuncPage-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Action/Action.framework
 ${BUILT_PRODUCTS_DIR}/Dollar/Dollar.framework
 ${BUILT_PRODUCTS_DIR}/Hue/Hue.framework
 ${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework

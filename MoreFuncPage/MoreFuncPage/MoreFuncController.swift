@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 internal class MoreFuncController: UIViewController {
+    
+    var disposeBag: DisposeBag = DisposeBag()
     
     private lazy var functionsView: MoreFuncScrollView = {
         let functionView = MoreFuncScrollView(frame: CGRect(x: 0, y: navigationTotalHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - navigationTotalHeight))
@@ -20,7 +23,7 @@ internal class MoreFuncController: UIViewController {
         btn.setTitle("编辑", for: .normal)
         btn.setTitleColor(.orange, for: .normal)
         btn.setTitleColor(.yellow, for: .highlighted)
-        btn.addTarget(self, action: #selector(targetForEdit(sender:)), for: .touchUpInside)
+        btn.rx.tap.subscribe { [weak self] (onNext) in self?.targetForEdit(sender: btn) }.disposed(by: disposeBag)
         return btn
     }()
     
@@ -29,7 +32,7 @@ internal class MoreFuncController: UIViewController {
         btn.setTitle("返回", for: .normal)
         btn.setTitleColor(.orange, for: .normal)
         btn.setTitleColor(.yellow, for: .highlighted)
-        btn.addTarget(self, action: #selector(targetForGobackOrCancel(sender:)), for: .touchUpInside)
+        btn.rx.tap.subscribe { [weak self] (onNext) in self?.targetForGobackOrCancel(sender: btn) }.disposed(by: disposeBag)
         return btn
     }()
 }
@@ -51,7 +54,7 @@ extension MoreFuncController {
     }
     
     
-    @objc private func targetForEdit(sender: UIBarButtonItem) {
+    @objc private func targetForEdit(sender: UIButton) {
         functionsView.changeEditStatus(isEditing: !functionsView.isEdit)
         updateEditButton(isEditing: functionsView.isEdit)
     }

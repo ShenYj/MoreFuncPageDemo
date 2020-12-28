@@ -1,7 +1,4 @@
 PODS:
-  - Action (4.2.0):
-    - RxCocoa (< 7.0, >= 5.0)
-    - RxSwift (< 7.0, >= 5.0)
   - Dollar (9.0.0)
   - Hue (5.0.0)
   - ObjectMapper (4.2.0)
@@ -43,7 +40,6 @@ PODS:
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - Action (~> 4.2.0)
   - Dollar (~> 9.0.0)
   - Hue (~> 5.0.0)
   - ObjectMapper (~> 4.2.0)
@@ -56,7 +52,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Action
     - Dollar
     - Hue
     - ObjectMapper
@@ -69,7 +64,6 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Action: 5dc2194f7a0b77857c82a677b0da655f197c005f
   Dollar: 2fc9bdeeb2d3ae1f251461803240d5c93829ee0c
   Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -81,6 +75,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 633304165351b8e3dcbb81a71f8efcd86f9c1669
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 34dc39ca94e9b5bacb6e0fd1122ac7f6a230c69c
+PODFILE CHECKSUM: 754f6bda13816659d8d96d0cd9f6f9187781c0c7
 
 COCOAPODS: 1.10.0
