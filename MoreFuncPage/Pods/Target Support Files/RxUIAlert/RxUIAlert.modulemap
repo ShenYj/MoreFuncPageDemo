@@ -1,0 +1,6 @@
+framework module RxUIAlert {
+  umbrella header "RxUIAlert-umbrella.h"
+
+  export *
+  module * { export * }
+}

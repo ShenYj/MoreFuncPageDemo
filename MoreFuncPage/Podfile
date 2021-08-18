@@ -5,15 +5,37 @@ platform :ios, '13.0'
 inhibit_all_warnings!
 
 def libs_pods
-  pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'SwiftyJSON', '~> 5.0.1'
   pod 'ObjectMapper', '~> 4.2.0'
   pod 'SwifterSwift', '~> 5.2.0'
   pod 'Hue', '~> 5.0.0'
   pod 'Dollar', '~> 9.0.0'
   pod 'R.swift', '~> 5.3.1'
-  pod 'RxSwift', '~> 5.1.1'
-  pod 'RxCocoa', '~> 5.1.1'
   #pod 'Action', '~> 4.2.0'
+end
+
+def libs_rx_swift
+  # Core & Derived library
+  pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '6.2.0'
+  pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '6.2.0'
+  pod 'RxGesture', :git => 'https://github.com/RxSwiftCommunity/RxGesture.git', :tag => '4.0.2'
+  pod 'RxSwiftExt', :git => 'https://github.com/RxSwiftCommunity/RxSwiftExt.git', :tag => '6.0.1'
+  pod 'RxDataSources', :git => 'https://github.com/RxSwiftCommunity/RxDataSources.git', :tag => '5.0.0'
+  pod 'RxAnimated', :git => 'https://github.com/RxSwiftCommunity/RxAnimated.git', :tag => '0.9.0'
+  pod 'RxReachability', :git => 'https://github.com/RxSwiftCommunity/RxReachability.git', :tag => '1.2.1'
+  pod 'RxTheme', :git => 'https://github.com/RxSwiftCommunity/RxTheme.git', :tag => '6.0.0'
+  pod 'RxAlertViewable', :git => 'https://github.com/lm2343635/RxAlertViewable.git', :tag => '1.1'
+  pod 'RxUIAlert', :git => 'https://github.com/RxSwiftCommunity/RxAlert.git', :tag => '1.4.1'
+  pod 'RxOptional', :git => 'https://github.com/RxSwiftCommunity/RxOptional.git', :tag => 'v5.0.3'
+  pod 'RxFlow', :git => 'https://github.com/RxSwiftCommunity/RxFlow.git', :tag => '2.12.2'
+  pod 'RxBinding', :git => 'https://github.com/RxSwiftCommunity/RxBinding.git', :tag => '0.5'
+  # supported for 6.2 with my PR
+  pod 'NSObject+Rx', :git => 'https://github.com/RxSwiftCommunity/NSObject-Rx.git', :tag => '5.2.2'
+  # not in RxSwiftCommunity
+  pod 'RxViewController', :git => 'https://github.com/devxoul/RxViewController.git', :tag => '2.0.0'
+  pod 'RxAppState'#, :git => 'https://github.com/pixeldock/RxAppState.git'
+  # 不支持 6.2
+  # pod 'Moya-ObjectMapper/RxSwift'#, '~> 2.9'
 end
 
 def widgets_pods
@@ -26,6 +48,6 @@ target 'MoreFuncPage' do
   use_frameworks!
   libs_pods
   widgets_pods
-  # Pods for MoreFuncPage
+  libs_rx_swift
 
 end
