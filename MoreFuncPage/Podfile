@@ -3,6 +3,8 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '13.0'
 
 inhibit_all_warnings!
+install! 'cocoapods',
+  :warn_for_unused_master_specs_repo => false
 
 def libs_pods
   pod 'SwiftyJSON', '~> 5.0.1'
@@ -11,7 +13,6 @@ def libs_pods
   pod 'Hue', '~> 5.0.0'
   pod 'Dollar', '~> 9.0.0'
   pod 'R.swift', '~> 5.3.1'
-  #pod 'Action', '~> 4.2.0'
 end
 
 def libs_rx_swift
@@ -29,13 +30,14 @@ def libs_rx_swift
   pod 'RxOptional', :git => 'https://github.com/RxSwiftCommunity/RxOptional.git', :tag => 'v5.0.3'
   pod 'RxFlow', :git => 'https://github.com/RxSwiftCommunity/RxFlow.git', :tag => '2.12.2'
   pod 'RxBinding', :git => 'https://github.com/RxSwiftCommunity/RxBinding.git', :tag => '0.5'
-  # supported for 6.2 with my PR
   pod 'NSObject+Rx', :git => 'https://github.com/RxSwiftCommunity/NSObject-Rx.git', :tag => '5.2.2'
   # not in RxSwiftCommunity
   pod 'RxViewController', :git => 'https://github.com/devxoul/RxViewController.git', :tag => '2.0.0'
   pod 'RxAppState'#, :git => 'https://github.com/pixeldock/RxAppState.git'
   # 不支持 6.2
-  # pod 'Moya-ObjectMapper/RxSwift'#, '~> 2.9'
+  #pod 'Moya-ObjectMapper/RxSwift'#, '~> 2.9'
+  
+  #pod 'Action', '~> 4.2.0'
 end
 
 def widgets_pods
