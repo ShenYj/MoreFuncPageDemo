@@ -12,37 +12,40 @@ def libs_pods
   pod 'SwifterSwift', '~> 5.2.0'
   pod 'Hue', '~> 5.0.0'
   pod 'Dollar', '~> 9.0.0'
-  pod 'R.swift', '~> 5.3.1'
+  pod 'R.swift', '~> 6.1'
 end
 
 def libs_rx_swift
   # Core & Derived library
-  pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '6.2.0'
-  pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '6.2.0'
-  pod 'RxGesture', :git => 'https://github.com/RxSwiftCommunity/RxGesture.git', :tag => '4.0.2'
+  pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '6.5.0'
+  pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :tag => '6.5.0'
+  pod 'RxGesture', :git => 'https://github.com/RxSwiftCommunity/RxGesture.git', :tag => '4.0.4'
   pod 'RxSwiftExt', :git => 'https://github.com/RxSwiftCommunity/RxSwiftExt.git', :tag => '6.0.1'
+  pod 'RxOptional', :git => 'https://github.com/RxSwiftCommunity/RxOptional.git', :tag => 'v5.0.3'
   pod 'RxDataSources', :git => 'https://github.com/RxSwiftCommunity/RxDataSources.git', :tag => '5.0.0'
   pod 'RxAnimated', :git => 'https://github.com/RxSwiftCommunity/RxAnimated.git', :tag => '0.9.0'
   pod 'RxReachability', :git => 'https://github.com/RxSwiftCommunity/RxReachability.git', :tag => '1.2.1'
-  pod 'RxTheme', :git => 'https://github.com/RxSwiftCommunity/RxTheme.git', :tag => '6.0.0'
-  pod 'RxAlertViewable', :git => 'https://github.com/lm2343635/RxAlertViewable.git', :tag => '1.1'
-  pod 'RxUIAlert', :git => 'https://github.com/RxSwiftCommunity/RxAlert.git', :tag => '1.4.1'
-  pod 'RxOptional', :git => 'https://github.com/RxSwiftCommunity/RxOptional.git', :tag => 'v5.0.3'
-  pod 'RxFlow', :git => 'https://github.com/RxSwiftCommunity/RxFlow.git', :tag => '2.12.2'
-  pod 'RxBinding', :git => 'https://github.com/RxSwiftCommunity/RxBinding.git', :tag => '0.5'
+  pod 'RxUIAlert', :git => 'https://github.com/RxSwiftCommunity/RxAlert.git', :tag => '1.5.0'
+  pod 'RxKeyboard', :git => 'https://github.com/RxSwiftCommunity/RxKeyboard', :tag => '2.0.0'
+  pod 'RxCoreLocation', :git => 'https://github.com/RxSwiftCommunity/RxCoreLocation.git', :tag => '1.5.1'
+  pod 'Moya/RxSwift', :git => 'https://github.com/Moya/Moya.git', :tag => '15.0.0'
   pod 'NSObject+Rx', :git => 'https://github.com/RxSwiftCommunity/NSObject-Rx.git', :tag => '5.2.2'
+  pod 'RxWebKit', :git => 'https://github.com/RxSwiftCommunity/RxWebKit.git', :tag => '2.0.0'
+  #pod 'RxTheme', :git => 'https://github.com/RxSwiftCommunity/RxTheme.git', :tag => '6.0.0'
+  #pod 'RxFlow', :git => 'https://github.com/RxSwiftCommunity/RxFlow.git', :tag => '2.12.2'
+  #pod 'RxBinding', :git => 'https://github.com/RxSwiftCommunity/RxBinding.git', :tag => '0.5'
+  #pod 'RxAlertViewable', :git => 'https://github.com/lm2343635/RxAlertViewable.git', :tag => '1.2'
+  pod 'RxKingfisher', :git => 'https://github.com/RxSwiftCommunity/RxKingfisher.git', :tag => '2.1.0'
+  
   # not in RxSwiftCommunity
   pod 'RxViewController', :git => 'https://github.com/devxoul/RxViewController.git', :tag => '2.0.0'
   pod 'RxAppState'#, :git => 'https://github.com/pixeldock/RxAppState.git'
-  # 不支持 6.2
-  #pod 'Moya-ObjectMapper/RxSwift'#, '~> 2.9'
-  
-  #pod 'Action', '~> 4.2.0'
+  pod 'RxMKMapView'
 end
 
 def widgets_pods
-  pod 'SwiftMessages', '~> 8.0.2'
-  pod 'SkeletonView', '~> 1.11.0'
+  pod 'SwiftMessages', :git => 'https://github.com/SwiftKickMobile/SwiftMessages.git', :tag => '9.0.6'
+  pod 'SkeletonView', '~> 1.29.2'
 end
 
 target 'MoreFuncPage' do
