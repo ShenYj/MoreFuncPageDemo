@@ -1,0 +1,6 @@
+framework module RxAlertViewable {
+  umbrella header "RxAlertViewable-umbrella.h"
+
+  export *
+  module * { export * }
+}
