@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		B4D729962FA0D0F31768AEAE /* Pods_MoreFuncPage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223CFE9B5F31955C0D81B8 /* Pods_MoreFuncPage.framework */; };
 		F7387D27256F85F4004051C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D26256F85F4004051C8 /* AppDelegate.swift */; };
-		F7387D29256F85F4004051C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D28256F85F4004051C8 /* SceneDelegate.swift */; };
-		F7387D2B256F85F4004051C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D2A256F85F4004051C8 /* ViewController.swift */; };
-		F7387D2E256F85F4004051C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7387D2C256F85F4004051C8 /* Main.storyboard */; };
+		F7387D2B256F85F4004051C8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D2A256F85F4004051C8 /* RootViewController.swift */; };
 		F7387D30256F85F5004051C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7387D2F256F85F5004051C8 /* Assets.xcassets */; };
 		F7387D33256F85F5004051C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7387D31256F85F5004051C8 /* LaunchScreen.storyboard */; };
 		F7387D42256F88A8004051C8 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D41256F88A8004051C8 /* CollectionView.swift */; };
@@ -44,6 +42,11 @@
 		F773A05A257479CB00C0D4ED /* MoreFuncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7387D3D256F8700004051C8 /* MoreFuncController.swift */; };
 		F773A0BB25748C2200C0D4ED /* OptionalSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F773A0BA25748C2200C0D4ED /* OptionalSectionFooter.swift */; };
 		F773A0BE25748C4500C0D4ED /* OptionalSectionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F773A0BD25748C4500C0D4ED /* OptionalSectionFooter.xib */; };
+		F7CFB8922892243E00212350 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CFB8912892243E00212350 /* ViewModelType.swift */; };
+		F7CFB8942892245B00212350 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CFB8932892245B00212350 /* RootViewModel.swift */; };
+		F7CFB896289225B200212350 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CFB895289225B200212350 /* BaseViewModel.swift */; };
+		F7CFB8982892263E00212350 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CFB8972892263E00212350 /* BaseViewController.swift */; };
+		F7CFB89B2892266E00212350 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CFB89A2892266E00212350 /* ViewType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,9 +55,7 @@
 		6304E605148CFCEF43A9A762 /* Pods-MoreFuncPage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreFuncPage.release.xcconfig"; path = "Target Support Files/Pods-MoreFuncPage/Pods-MoreFuncPage.release.xcconfig"; sourceTree = "<group>"; };
 		F7387D23256F85F4004051C8 /* MoreFuncPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoreFuncPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7387D26256F85F4004051C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7387D28256F85F4004051C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F7387D2A256F85F4004051C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F7387D2D256F85F4004051C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F7387D2A256F85F4004051C8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F7387D2F256F85F5004051C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7387D32256F85F5004051C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7387D34256F85F5004051C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +89,11 @@
 		F773A04C2574760300C0D4ED /* MoreFuncProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFuncProtocol.swift; sourceTree = "<group>"; };
 		F773A0BA25748C2200C0D4ED /* OptionalSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalSectionFooter.swift; sourceTree = "<group>"; };
 		F773A0BD25748C4500C0D4ED /* OptionalSectionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionalSectionFooter.xib; sourceTree = "<group>"; };
+		F7CFB8912892243E00212350 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		F7CFB8932892245B00212350 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		F7CFB895289225B200212350 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		F7CFB8972892263E00212350 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F7CFB89A2892266E00212350 /* ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,12 +146,9 @@
 		F7387D25256F85F4004051C8 /* MoreFuncPage */ = {
 			isa = PBXGroup;
 			children = (
-				F7387D3C256F86E9004051C8 /* MoreFunc */,
-				F7387D3D256F8700004051C8 /* MoreFuncController.swift */,
+				F7CFB89C28922AB100212350 /* Module */,
+				F7CFB8992892264600212350 /* Base */,
 				F7387D26256F85F4004051C8 /* AppDelegate.swift */,
-				F7387D28256F85F4004051C8 /* SceneDelegate.swift */,
-				F7387D2A256F85F4004051C8 /* ViewController.swift */,
-				F7387D2C256F85F4004051C8 /* Main.storyboard */,
 				F7387D2F256F85F5004051C8 /* Assets.xcassets */,
 				F7387D31256F85F5004051C8 /* LaunchScreen.storyboard */,
 				F7387D34256F85F5004051C8 /* Info.plist */,
@@ -156,6 +159,7 @@
 		F7387D3C256F86E9004051C8 /* MoreFunc */ = {
 			isa = PBXGroup;
 			children = (
+				F7387D3D256F8700004051C8 /* MoreFuncController.swift */,
 				F773A04B257475D700C0D4ED /* Core */,
 				F7387D55256FE4E0004051C8 /* Extension */,
 				F7387D5E256FEA33004051C8 /* MockData */,
@@ -237,6 +241,35 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		F7CFB8992892264600212350 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F7CFB8912892243E00212350 /* ViewModelType.swift */,
+				F7CFB895289225B200212350 /* BaseViewModel.swift */,
+				F7CFB89A2892266E00212350 /* ViewType.swift */,
+				F7CFB8972892263E00212350 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F7CFB89C28922AB100212350 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				F7387D3C256F86E9004051C8 /* MoreFunc */,
+				F7CFB89D28922AB800212350 /* Root */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		F7CFB89D28922AB800212350 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F7CFB8932892245B00212350 /* RootViewModel.swift */,
+				F7387D2A256F85F4004051C8 /* RootViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,7 +336,6 @@
 				F7387D30256F85F5004051C8 /* Assets.xcassets in Resources */,
 				F773A0BE25748C4500C0D4ED /* OptionalSectionFooter.xib in Resources */,
 				F7387D60256FEA84004051C8 /* default_function.json in Resources */,
-				F7387D2E256F85F4004051C8 /* Main.storyboard in Resources */,
 				F7387E282570A357004051C8 /* AddFuncCell.xib in Resources */,
 				F7387E682570DE73004051C8 /* OptionalSectionHeader.xib in Resources */,
 				F7387E2B2570A364004051C8 /* RemoveFuncCell.xib in Resources */,
@@ -369,7 +401,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint lint \nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -380,14 +412,18 @@
 			files = (
 				F773A05A257479CB00C0D4ED /* MoreFuncController.swift in Sources */,
 				F773A057257478FE00C0D4ED /* MoreFuncScrollView.swift in Sources */,
-				F7387D2B256F85F4004051C8 /* ViewController.swift in Sources */,
+				F7387D2B256F85F4004051C8 /* RootViewController.swift in Sources */,
 				F7387D45256F890E004051C8 /* FlowLayout.swift in Sources */,
 				F7387E642570DE4B004051C8 /* OptionalSectionHeader.swift in Sources */,
+				F7CFB8982892263E00212350 /* BaseViewController.swift in Sources */,
+				F7CFB896289225B200212350 /* BaseViewModel.swift in Sources */,
 				F7387D42256F88A8004051C8 /* CollectionView.swift in Sources */,
+				F7CFB8942892245B00212350 /* RootViewModel.swift in Sources */,
 				F7387E352570B202004051C8 /* FunctionManager.swift in Sources */,
 				F7387E252570A2E4004051C8 /* NormalFuncCell.swift in Sources */,
 				F7387DD62570894D004051C8 /* FunctionModel.swift in Sources */,
 				F773A04D2574760300C0D4ED /* MoreFuncProtocol.swift in Sources */,
+				F7CFB89B2892266E00212350 /* ViewType.swift in Sources */,
 				F7387D4B256F92AF004051C8 /* Application+Ex.swift in Sources */,
 				F7387E1E2570951E004051C8 /* UndefineFuncCell.swift in Sources */,
 				F7387DDC257089CE004051C8 /* FunctionsModel.swift in Sources */,
@@ -396,8 +432,8 @@
 				F7387EC42573638F004051C8 /* Copyable.swift in Sources */,
 				F773A0BB25748C2200C0D4ED /* OptionalSectionFooter.swift in Sources */,
 				F7387D50256F94BF004051C8 /* ReusedIdentifier.swift in Sources */,
+				F7CFB8922892243E00212350 /* ViewModelType.swift in Sources */,
 				F7387E772572034D004051C8 /* SelectedSectionHeader.swift in Sources */,
-				F7387D29256F85F4004051C8 /* SceneDelegate.swift in Sources */,
 				F7387DD92570898A004051C8 /* GroupFunctionModel.swift in Sources */,
 				F7387E7E25720942004051C8 /* SelectedSectionFooter.swift in Sources */,
 				F7387E2E2570A38F004051C8 /* AddFuncCell.swift in Sources */,
@@ -408,14 +444,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F7387D2C256F85F4004051C8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F7387D2D256F85F4004051C8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F7387D31256F85F5004051C8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

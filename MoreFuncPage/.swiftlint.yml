@@ -4,15 +4,16 @@ disabled_rules:
   - colon
   - vertical_whitespace
   - function_body_length
-  - type_name
   - identifier_name
+  #- type_name
   # - control_statement
 opt_in_rules: # some rules are only opt-in
   - empty_count
   # Find all the available rules by running:
   # swiftlint rules
 included: # paths to include during linting. `--path` is ignored if present.
-  - MoreFuncPage/MoreFunc
+  - MoreFuncPage/Module
+  - MoreFuncPage/Base
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
