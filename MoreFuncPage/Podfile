@@ -13,6 +13,7 @@ def libs_pods
   pod 'Hue', '~> 5.0.0'
   pod 'Dollar', '~> 9.0.0'
   pod 'R.swift', '~> 6.1'
+  pod 'Then', '~> 3.0.0'
 end
 
 def libs_rx_swift
@@ -68,8 +69,8 @@ post_install do |installer|
       configuration.build_settings['SWIFT_VERSION'] = "5.6"
       configuration.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'NO'
       configuration.build_settings['ENABLE_BITCODE'] = 'NO'
-      if ( configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 12.0 )
-        configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      if ( configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 14.0 )
+        configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
       end
     end
   
