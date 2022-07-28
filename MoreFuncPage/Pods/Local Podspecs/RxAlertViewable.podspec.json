@@ -1,6 +1,6 @@
 {
   "name": "RxAlertViewable",
-  "version": "1.1",
+  "version": "1.2",
   "summary": "A simple alert library with RxSwift supported.",
   "description": "RxAlertViewable is created for developing the MVVM app with RxSwift. It supports to show a simple alert from the view model class using the signal Observable<RxAlert>.",
   "homepage": "https://github.com/lm2343635/RxAlertViewable",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lm2343635/RxAlertViewable.git",
-    "tag": "1.1"
+    "tag": "1.2"
   },
   "platforms": {
     "ios": "10.0"

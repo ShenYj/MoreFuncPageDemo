@@ -7,7 +7,7 @@ We have made it easy to implement UIAlertController using RxSwift.
 
 |build|status|
 |:-------|:---|
-|travis CI|[![](https://travis-ci.org/RxSwiftCommunity/RxAlert.svg?branch=master)](https://travis-ci.org/RxSwiftCommunity/RxAlert)|
+|Github Actions|[![build](https://github.com/RxSwiftCommunity/RxAlert/actions/workflows/rxalert.yml/badge.svg?branch=master)](https://github.com/RxSwiftCommunity/RxAlert/actions/workflows/rxalert.yml)|
 
 
 ## Use it
@@ -37,6 +37,15 @@ github "RxSwiftCommunity/RxAlert"
 
 ```
 pod 'RxUIAlert'
+```
+
+## Usage
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+
+```
+pod install 
 ```
 
 ## Sample code
